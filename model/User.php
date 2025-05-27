@@ -28,11 +28,11 @@
             $sqlState->execute([$username, $password, $role]);
         }
 
-        public static function updateUser($id,$username, $role)
+        public static function updateUser($id,$username,$password, $role)
           {
             $pdo = Database::connect();
-            $sqlState = $pdo->prepare("UPDATE users SET username = ?, role = ?  WHERE id = ?");
-           return $sqlState->execute([$username,$role, $id]);
+            $sqlState = $pdo->prepare("UPDATE users SET username = ? , password = ? , role = ?  WHERE id = ?");
+           return $sqlState->execute([$username,$password ,$role, $id]);
           }
 
 

@@ -17,6 +17,11 @@
                     </div>
 
                     <div class="mb-3">
+                           <label class="form-label">Mot de passe:</label>
+                           <input type="password" class="form-control" name="password"  value="<?php echo $u->password ?>" required>
+                    </div>
+
+                    <div class="mb-3">
                         <label class="form-label">Rôle:</label>
                         <select class="form-select" name="role">
                             <option value="admin" <?= ($u->role === 'admin') ? 'selected' : '' ?>>Administrateur</option>

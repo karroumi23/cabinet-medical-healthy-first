@@ -76,8 +76,9 @@ class AuthController {
       {
         $id = $_POST['id'];
         $username = $_POST['username'];
+        $password = $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
         $role = $_POST['role'];
-         user::updateUser($id,$username, $role);
+         user::updateUser($id,$username,$password, $role);
          $_SESSION['message'] = "utilisateur avec l'ID <strong>$id</strong> modifié avec succès.";
          header("Location: index.php?action=listUsers");
          exit;
