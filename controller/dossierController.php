@@ -22,6 +22,7 @@
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 // Securely get the current user from the session
                 $cree_par = $_SESSION['user']['username'];
+                $patient_id = $_POST['patient_id'];
                 // Call the model to insert the dossier
                 Dossier::createDossier ($_POST['patient_id'],
                 $_POST['nom_complet'],
@@ -36,7 +37,7 @@
         
                 // Set session message and redirect
                 $_SESSION['message'] = "Le dossier médical a été créé avec succès .";
-                header("Location: index.php?action=list"); // or wherever you list patients
+                header("Location: index.php?action=dossierMedical&id=". $patient_id); // or wherever you list patients
                 exit;
             } else {
                 include 'views/patient/dossierMedical/create_dossier.php';

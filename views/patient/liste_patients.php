@@ -43,7 +43,7 @@
       </a>
     <?php endif; ?>
     
-    <a href="index.php?action=createDossier&id=<?= $p->id ?>&nom=<?= urlencode($nom_complet) ?>" 
+    <a href="index.php?action=createDossier&id=<?= $p->id ?>&nom_complet=<?= urlencode($nom_complet) ?>" 
        style="color: #e76f51;"  
        title="Ajouter dossier">
        <i class="fa-solid fa-square-plus" style="font-size: 22px;"></i>

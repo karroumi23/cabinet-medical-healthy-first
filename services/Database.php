@@ -25,7 +25,7 @@ class Database {
                 username VARCHAR(100) NOT NULL,
                 password VARCHAR(255) NOT NULL,
                 role ENUM('admin', 'user') DEFAULT 'user',
-                date_creation DATE DEFAULT CURDATE()
+                date_creation DATE DEFAULT NULL
             )
         ");
 
@@ -40,12 +40,12 @@ class Database {
                 numero_securite_sociale VARCHAR(100),
                 tel VARCHAR(100),
                 adresse VARCHAR(255),
-                date_ajout DATE DEFAULT CURDATE(),
+                date_ajout DATE DEFAULT NULL,
                 cree_par VARCHAR(100)
             )
         ");
 
-        //  - Create dossier_medical table
+        // Create dossier_medical table
         $pdo->exec("
             CREATE TABLE IF NOT EXISTS dossier_medical (
                 id INT AUTO_INCREMENT PRIMARY KEY,
@@ -70,7 +70,7 @@ class Database {
         $count = $stmt->fetchColumn();
 
         if ($count == 0) {
-            $sqlPath = __DIR__ . '/../db/fake_data.sql'; // Adjust path as needed
+            $sqlPath = __DIR__ . '/../db/fake_data.sql'; // Adjust path if needed
 
             if (file_exists($sqlPath)) {
                 $sql = file_get_contents($sqlPath);
