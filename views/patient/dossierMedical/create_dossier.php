@@ -5,7 +5,7 @@
  <style>
      .readonly-cursor {
         cursor:not-allowed;
- </style>
+ </style> 
  <div class="container mt-5">
      <div class="row justify-content-center">
         <div class="col-md-6 col-lg-9 border p-4 shadow rounded bg-light mb-5">

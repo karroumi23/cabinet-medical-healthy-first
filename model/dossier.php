@@ -16,6 +16,10 @@
        
     public static function createDossier($patient_id, $nom_complet, $groupe_sanguin, $type_maladie, $diagnostic, $date_admission, $date_fin_traitement, $cout_traitement,$acompte_cout,$cree_par )
       {
+            //  Convert empty date to NULL for compatibility with MySQL DATE
+             if (empty($date_fin_traitement)) {
+                $date_fin_traitement = null;
+              }
            $pdo = Database::connect();
             $sqlState = $pdo->prepare("INSERT INTO dossier_medical (id,patient_id, nom_complet, groupe_sanguin, type_maladie, diagnostic, date_admission, date_fin_traitement, cout_traitement,acompte_cout,cree_par )
                                       VALUES (NULL,?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"); //CURDATE() it's better than 'DEFAULT'
