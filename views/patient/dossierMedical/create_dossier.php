@@ -2,19 +2,24 @@
 <!-- link bootstrap -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-<div class="container mt-5">
-    <div class="row justify-content-center">
+ <style>
+     .readonly-cursor {
+        cursor:not-allowed;
+ </style>
+ <div class="container mt-5">
+     <div class="row justify-content-center">
         <div class="col-md-6 col-lg-9 border p-4 shadow rounded bg-light mb-5">
             <h3 class="text-center mb-4" style="color:rgb(66, 107, 145);">Créer un Dossier Médical</h3>
 
             <form action="index.php?action=storeDossier" method="post">
                 <div class="mb-3">
                     <label class="form-label">ID </label>
-                    <input type="text" class="form-control" name="patient_id" value="<?= $id ?>" readonly>                </div>
+                    <input type="text" class="form-control readonly-cursor " name="patient_id" value="<?= $id ?>" readonly>
+                </div>
                 <div class="mb-3">
                     <label class="form-label">nom complet</label>
-                    <input type="text" class="form-control" name="nom_complet" value="<?= $nom_complet?>" readonly>
-                    </div>
+                    <input type="text" class="form-control readonly-cursor " name="nom_complet" value="<?= $nom_complet?>" readonly>
+                </div>
 
                 <div class="mb-3">
                     <label class="form-label">Groupe Sanguin</label>

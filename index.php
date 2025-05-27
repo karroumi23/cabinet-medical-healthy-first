@@ -88,8 +88,8 @@ $dossierController = new dossierController();
              }
               break;       
         case 'createDossier':
-          if (isset($_GET['id'],$_GET['nom'])) { 
-             $dossierController->createDossierAction($_GET['id'],$_GET['nom']);
+          if (isset($_GET['id'],$_GET['nom_complet'])) { 
+             $dossierController->createDossierAction($_GET['id'],$_GET['nom_complet']);
            }
              break;   
         case 'storeDossier' : 

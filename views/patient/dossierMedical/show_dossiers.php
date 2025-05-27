@@ -1,3 +1,5 @@
+
+
 <?php ob_start(); ?>
 
 
@@ -49,16 +51,20 @@
                                <a href="index.php?action=editUser&id=<?= $d->id ?>" class="btn btn-warning btn-sm" style="font-size: 0.7rem; padding: 0.2rem 0.5rem;">✏️ </a>
                                <a href="index.php?action=deleteDossier&id=<?= $d->id ?>&nom_complet=<?= urlencode($d->nom_complet) ?>&patient_id=<?= urlencode($d->patient_id) ?>" class="btn btn-danger btn-sm" style="font-size: 0.7rem; padding: 0.2rem 0.5rem;">🗑️ </a>                                                                    
                             </div>
-                        </td>
+                        </td>  
+
                     </tr>
+    
                 <?php endforeach; ?> 
             </tbody>
         </table>
     </div>
-     
+
     <a class="btn btn-primary" href="index.php?action=createDossier&id=<?= $patient_id ?>&nom_complet=<?= urlencode($nom_complet) ?>">
-         ➕ Ajouter Dossier
-   </a>
+    ➕ Ajouter Dossier
+</a>
+
+
 </div>
 
 

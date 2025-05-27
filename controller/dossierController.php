@@ -2,11 +2,14 @@
   class dossierController {
 
 
-     public function dossierAction($patient_id)
-       {
-         $dossier = Dossier::getDossier($patient_id);
-           require_once 'views/patient/dossierMedical/show_dossiers.php';  
-       }
+    public function dossierAction($patient_id) //show_dossier
+    {
+        $dossier = Dossier::getDossier($patient_id);
+        //Get nom_complet and patient_id from the first record if available
+          $nom_complet = !empty($dossier) ? $dossier[0]->nom_complet : '';
+        require_once 'views/patient/dossierMedical/show_dossiers.php';
+    }
+    
        
 
        public function createDossierAction($id, $nom_complet)
