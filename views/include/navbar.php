@@ -5,7 +5,7 @@
     color: #3F8755;
     font-size: large;
     letter-spacing: 0.5px;
-    transition: color 0.3s ease, text-shadow 0.2s ease;
+    transition: color 0.3s ease, text-shadow 0.2s ;
   }
 
   .nav-link-custom:hover {
