@@ -45,7 +45,7 @@ class Database {
             )
         ");
 
-        // Create dossier_medical table
+        //  - Create dossier_medical table
         $pdo->exec("
             CREATE TABLE IF NOT EXISTS dossier_medical (
                 id INT AUTO_INCREMENT PRIMARY KEY,
