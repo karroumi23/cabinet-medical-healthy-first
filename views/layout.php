@@ -15,18 +15,17 @@
 </head>
 
 
-<body >
-     <!-- navbar -->
-    <?php require_once 'views/include/navbar.php';?>
+<body>
+    <?php require_once 'views/include/navbar.php'; ?>
 
-    <div  class="container  ">
-       <?= $content ?>
-    </div>
-     
+    <?php if (!isset($fullWidth) || !$fullWidth): ?>
+        <div class="container">
+            <?= $content ?>
+        </div>
+    <?php else: ?>
+        <?= $content ?>
+    <?php endif; ?>
 
-
-<!-- Bootstrap 5 JS bundle (includes Popper) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -1,3 +1,10 @@
+<?php
+$fullWidth = true;
+
+?>
+
+
+
 <?php ob_start(); ?>
 <?php if (isset($_SESSION['message'])): ?>     <!--  message pour confirmer la suppression -->
     <div class="alert alert-success text-center mt-4" style="color: green; font-size: 20px; font-weight: bold;">
@@ -11,7 +18,7 @@
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        min-height: 100vh;
+        min-height: 87.3vh;
         position: relative;
         color: white;
         width: 100% ;
@@ -32,16 +39,22 @@
         position: relative;
         z-index: 2;
     }
+
+
+    .container {
+    max-width: 100% !important;
+    padding: 0 !important;
+}
 </style>
 
 <div class="hero-section d-flex justify-content-center align-items-center ">
     <div class="overlay"></div>
     <div class="hero-content text-center">
         <h1 class="display-4 fw-bold text-light">
-            Bienvenue dans le système 
-            <span class="text-success">H&nbsp;ô&nbsp;p&nbsp;i&nbsp;t&nbsp;a&nbsp;l</span>
+        <img src="/image/logo1.png" alt="" style="width:100px; margin-top:-25px; "> Bienvenue dans le système
+             <span class="text-success">H&nbsp;ô&nbsp;p&nbsp;i&nbsp;t&nbsp;a&nbsp;l</span>
         </h1>
-        <p class="lead text-white mt-3">
+        <p class="lead text-white mt-2">
             Une plateforme intelligente pour la gestion des profils et des utilisateurs en toute simplicité.
         </p>
     </div>
