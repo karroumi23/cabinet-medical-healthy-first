@@ -42,7 +42,7 @@
       public function editAction()
        {
         $id = $_GET['id'];
-        $p = Patient::view($id) ; //recuperation info de stagiaire from datB(nom/age...)
+        $p = Patient::view($id) ; //recuperation info de patient from datB(nom/age...)
         require_once 'views/patient/edit.php';
        } 
 

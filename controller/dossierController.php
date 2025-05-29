@@ -13,11 +13,11 @@
        
 
        public function createDossierAction($id, $nom_complet)
-       {
+        {
            require_once 'views/patient/dossierMedical/create_dossier.php';
-       }
+        }
        
-     public function storeDossierAction()
+      public function storeDossierAction()
         {
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 // Securely get the current user from the session
@@ -44,6 +44,13 @@
             }
         }
         
+
+      public function editDossierAction()
+        {
+          $id = $_GET['id'];
+          $d = Dossier::viewDossier($id); //recuperation info de dossier from datB(id/patient_id...)
+          require_once 'views/patient/dossierMedical/edit_dossier.php';
+        }  
 
         public function deleteDossierAction()
           {

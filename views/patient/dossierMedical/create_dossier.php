@@ -12,6 +12,7 @@
             <h3 class="text-center mb-4" style="color:rgb(66, 107, 145);">Créer un Dossier Médical</h3>
 
             <form action="index.php?action=storeDossier" method="post">
+                
                 <div class="mb-3">
                     <label class="form-label">ID </label>
                     <input type="text" class="form-control readonly-cursor " name="patient_id" value="<?= $id ?>" readonly>
@@ -22,9 +23,20 @@
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label">Groupe Sanguin</label>
-                    <input type="text" class="form-control" name="groupe_sanguin" required>
+                   <label class="form-label">Groupe Sanguin</label>
+                   <select class="form-select" name="groupe_sanguin" required>
+                        <option value="">-- Sélectionner --</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                      </select>
                 </div>
+
 
                 <div class="mb-3">
                     <label class="form-label">Type de Maladie</label>
@@ -55,7 +67,8 @@
                     <label class="form-label">Acompte (MAD)</label>
                     <input type="number" step="0.01" class="form-control" name="acompte_cout" >
                 </div>
-                 <!-- ajouter - annuler -->
+
+                 /*  ajouter - annuler  */
                 <div class="d-flex justify-content-between mt-4">
                     <input type="submit" class="btn btn-success" name="ajouter" value="Ajouter">
                     <a href="index.php?action=list" class="btn btn-danger">Annuler</a>

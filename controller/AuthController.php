@@ -69,7 +69,7 @@ class AuthController {
     public function editUserAction()
       {
         $id = $_GET['id'];
-        $u = user::viewUser($id) ; //recuperation info de stagiaire from datB(nom/age...)
+        $u = user::viewUser($id) ; //recuperation info  user from datB(nom/role...)
         require_once 'views/user/edit_user.php';
       }
     public function updateUserAction()

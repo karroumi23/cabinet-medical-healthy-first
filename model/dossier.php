@@ -26,6 +26,13 @@
             $sqlState->execute([$patient_id, $nom_complet, $groupe_sanguin, $type_maladie, $diagnostic, $date_admission, $date_fin_traitement, $cout_traitement,$acompte_cout,$cree_par ]);
         
       }
+
+    public static function updateDossier()
+      {
+         //..........
+      }
+
+
     public static function destroyDossier($id) 
        {
          $pdo = Database::connect();
@@ -34,5 +41,11 @@
        }
  
 
-     
+       public static function viewDossier($id) //$id from controller 
+       {
+         $pdo = Database::connect();
+         $sqlState = $pdo->prepare('SELECT * FROM dossier_medical WHERE id=?');
+         $sqlState->execute([$id]);
+         return $sqlState->fetch(PDO::FETCH_OBJ); 
+       }
     }
