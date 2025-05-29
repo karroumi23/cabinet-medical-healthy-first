@@ -1,7 +1,7 @@
 <?php ob_start(); ?>
 
-<div class="container w-75 my-4 bg-light p-5 rounded shadow">
-    <h3 class="text-center mb-4">Authentification</h3>
+<div class="container w-75 my-4 mt-5 bg-light p-5 rounded shadow">
+    <h3 class="text-center mb-4 " style="color:rgb(66, 107, 145);">Connexion</h3>
 
 
      <?php if (isset($_SESSION['message'])): ?>  <!--success message after add user -->

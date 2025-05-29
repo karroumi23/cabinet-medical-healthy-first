@@ -2,21 +2,28 @@
 class Database {
     private static $pdo = null;
 
+    // ✅ Main connection method (no table creation or data import here)
     public static function connect() {
         if (self::$pdo === null) {
             self::$pdo = new PDO('mysql:host=localhost;dbname=hopital;charset=utf8', 'root', '');
             self::$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-            // ✅ Create tables if they don't exist
-            self::createTablesIfNotExist(self::$pdo);
-
-            // ✅ Auto-import fake data if necessary
-            self::maybeImportFakeData(self::$pdo);
         }
 
         return self::$pdo;
     }
 
+    // ✅ Initialization method to be called explicitly (only ONCE, e.g. setup.php)
+    public static function initialize() {
+        $pdo = self::connect();
+
+        // Create tables if they don't exist
+        self::createTablesIfNotExist($pdo);
+
+        // Import fake data if needed
+        self::maybeImportFakeData($pdo);
+    }
+
+    // ✅ Table creation logic
     private static function createTablesIfNotExist($pdo) {
         // Create users table
         $pdo->exec("
@@ -64,6 +71,7 @@ class Database {
         ");
     }
 
+    // ✅ Optional data import if users table is empty
     private static function maybeImportFakeData($pdo) {
         // Check if users table is empty
         $stmt = $pdo->query("SELECT COUNT(*) FROM users");
