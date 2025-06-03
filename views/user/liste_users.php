@@ -66,7 +66,7 @@
                      <tbody>
                            <?php foreach($users as $u): ?> 
                        <tr>
-                        <td><?= $u->id ?></td>
+                        <td>#<?= $u->id ?></td>
                         <td><?= $u->username?></td>
                         <td><?= $u->role ?></td>
                         <td><?= $u->date_creation?></td>

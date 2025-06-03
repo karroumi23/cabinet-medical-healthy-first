@@ -73,7 +73,7 @@
                 <tbody>
                 <?php foreach($dossier as $d): ?> 
                     <tr>
-                        <td><?= $d->id  ?></td>
+                        <td>#<?= $d->id  ?></td>
                         <td><?= $d->patient_id  ?></td>
                         <td><?= $d->nom_complet?></td>
                         <td><?= $d->groupe_sanguin ?></td>
