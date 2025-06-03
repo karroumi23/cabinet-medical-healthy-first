@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-6 col-lg-9 border p-4 shadow rounded bg-light mb-5">
 
-        <h3  class="text-center  mb-4" style="color:rgb(66, 107, 145);">Ajouter un utilisateur</h3>
+        <h3  class="text-center  mb-4" >Ajouter un utilisateur</h3>
 
         <form method="POST" action="index.php?action=storeUser" >
             <div class="mb-3">
@@ -28,8 +28,8 @@
 
 
             <div class="d-flex justify-content-end gap-2 mt-4">
-           <input type="submit" class="btn btn-success" name="ajouter" value="Ajouter">
-           <a href="index.php?action=listUsers" class="btn btn-danger">Annuler</a>
+           <input type="submit" class="btn text-white" style="background: linear-gradient(135deg,rgb(84, 141, 110), #2e6642);" name="ajouter" value="Ajouter">
+           <a href="index.php?action=listUsers" class="btn btn-secondary">Annuler</a>
         </div>
         </form>
         </div> 

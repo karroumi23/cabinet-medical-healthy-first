@@ -18,7 +18,7 @@ $fullWidth = true;
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        min-height: 87.3vh;
+        min-height: 100vh;
         position: relative;
         color: white;
         width: 100% ;

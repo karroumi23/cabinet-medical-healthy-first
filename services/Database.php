@@ -1,40 +1,32 @@
 <?php
+
 class Database {
     private static $pdo = null;
 
-    // ✅ Main connection method (no table creation or data import here)
-    public static function connect() {
+     // database connection 
+     public static function connect() {
+        //If no connection has been yet 
         if (self::$pdo === null) {
+            // Create a new PDO connectio
             self::$pdo = new PDO('mysql:host=localhost;dbname=hopital;charset=utf8', 'root', '');
             self::$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
-
         return self::$pdo;
-    }
+      }
 
-    // ✅ Initialization method to be called explicitly (only ONCE, e.g. setup.php)
-    public static function initialize() {
-        $pdo = self::connect();
-
-        // Create tables if they don't exist
-        self::createTablesIfNotExist($pdo);
-
-        // Import fake data if needed
-        self::maybeImportFakeData($pdo);
-    }
-
-    // ✅ Table creation logic
+    // Table creation logic
     private static function createTablesIfNotExist($pdo) {
         // Create users table
-        $pdo->exec("
+        //exec() used to execute SQL statements like (CREATE TABLE INSERT UPDATE DELETE ALTER TABLE)
+        $pdo->exec(" 
             CREATE TABLE IF NOT EXISTS users (
                 id INT AUTO_INCREMENT PRIMARY KEY,
                 username VARCHAR(100) NOT NULL,
                 password VARCHAR(255) NOT NULL,
                 role ENUM('admin', 'user') DEFAULT 'user',
                 date_creation DATE DEFAULT NULL
-            )
-        ");
+            )"
+         );
 
         // Create patients table
         $pdo->exec("
@@ -71,7 +63,7 @@ class Database {
         ");
     }
 
-    // ✅ Optional data import if users table is empty
+    //  create fake data  if users table is empty
     private static function maybeImportFakeData($pdo) {
         // Check if users table is empty
         $stmt = $pdo->query("SELECT COUNT(*) FROM users");
@@ -84,8 +76,21 @@ class Database {
                 $sql = file_get_contents($sqlPath);
                 $pdo->exec($sql);
             } else {
-                error_log("⚠️ fake_data.sql not found at: $sqlPath");
+                error_log(" fake_data.sql not found at: $sqlPath");
             }
         }
     }
+
+
+    // Initialization   (i call it in setup.php only once)
+    public static function initialize() {
+            $pdo = self::connect();
+    
+            // Create tables if they don't exist
+            self::createTablesIfNotExist($pdo);
+    
+            // Import fake data if needed
+            self::maybeImportFakeData($pdo);
+        }
+    
 }

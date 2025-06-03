@@ -5,7 +5,7 @@
 
             <!-- Header with title and dossier medical button -->
             <div class=" text-center mb-5">
-                <h3 class="mb-0" style="color:rgb(66, 107, 145);">Ajouter un Patient</h3>               
+                <h3 class="mb-0" >Ajouter un Patient</h3>               
             </div>
 
             <form action="index.php?action=store" method="post">
@@ -52,8 +52,8 @@
 
                 <!-- Footer with actions -->
                 <div class="d-flex justify-content-end gap-2 mt-4">
-                    <input type="submit" class="btn btn-success" name="ajouter" value="Ajouter">
-                    <a href="index.php?action=list" class="btn btn-danger">Annuler</a>
+                    <input type="submit" class="btn text-white" style="background: linear-gradient(135deg,rgb(84, 141, 110), #2e6642);" name="ajouter" value="Ajouter">
+                    <a href="index.php?action=list" class="btn btn-secondary">Annuler</a>
                 </div>
             </form>
 

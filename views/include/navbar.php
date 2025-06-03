@@ -2,8 +2,8 @@
  <!-- style links  -->
  <style> 
   .nav-link-custom {
-    color: #3F8755;
-    font-size: large;
+    color: #417A58;
+    font-size:medium;
     letter-spacing: 0.5px;
     transition: color 0.3s ease, text-shadow 0.2s ;
   }
@@ -18,8 +18,8 @@
 <nav class="navbar navbar-expand-lg navbar-light  shadow-sm" style="background-color:rgba(239, 242, 245, 0.92);">
   <div class="container-fluid">
 
-    <!-- Username logo -->
-    <img src="/image/logo1.png" alt="" style="width:80px; height:auto; margin-left: 20px; margin-top: -10px;">
+    <!--  logo -->
+    <img src="/image/logo1.png" alt="" style="width:65px; height:auto; margin-left: 20px; margin-top: -10px;">
 
     <!-- Navbar for mobile -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -56,8 +56,12 @@
         <!-- ---------------------------------------------------->
         <!-- Connexion/Dropdown -->
          <li class="nav-item dropdown ms-5 me-4" >
-           <button class="btn btn-sm text-white dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #3F8755;">
-              Connexion
+            <button class="btn btn-sm text-white dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" style="background: linear-gradient(135deg,rgb(84, 141, 110), #2e6642);">
+                <!-- dispaly user name in the button of connexion -->
+                <?= isset($_SESSION['user']) 
+                    ? htmlspecialchars($_SESSION['user']['username']) 
+                    : 'Connexion' 
+                ?>       
             </button>
            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
              <?php if (isset($_SESSION['user'])): ?>

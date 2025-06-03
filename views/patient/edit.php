@@ -59,8 +59,8 @@
 
         <!-- Buttons -->
         <div class="d-flex justify-content-between mt-4">
-          <button type="submit" class="btn btn-success">✅ Modifier</button>
-          <a href="index.php?action=list" class="btn btn-danger">❌ Annuler</a>
+          <button type="submit" class="btn text-white" style="background: linear-gradient(135deg,rgb(84, 141, 110), #2e6642);"> Modifier</button>
+          <a href="index.php?action=list" class="btn btn-secondary"> Annuler</a>
         </div>
       </form>
 

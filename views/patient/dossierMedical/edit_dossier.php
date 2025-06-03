@@ -1,9 +1,10 @@
 <?php ob_start(); ?>
-<style>
-     .readonly-cursor {
-        cursor:not-allowed;
- </style> 
 
+<style>
+    .readonly-cursor{
+         cursor: not-allowed;
+    }
+</style>
 
 <div class="container mt-5">
     <div class="row justify-content-center">
@@ -64,8 +65,8 @@
 
 
                     <div class="d-flex justify-content-between mt-4">
-                        <button type="submit" class="btn btn-success">✅ Modifier</button>
-                        <a href="index.php?action=listUsers" class="btn btn-danger">❌ Annuler</a>
+                        <button type="submit" class="btn " style="background: linear-gradient(135deg,rgb(84, 141, 110), #2e6642);">Modifier</button>
+                        <a href="index.php?action=listUsers" class="btn btn-secondary">Annuler</a>
                     </div>
                 </form>
             </div>
