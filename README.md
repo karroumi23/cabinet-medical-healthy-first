@@ -15,7 +15,7 @@
 
 
 
- /structure of this steps /
+ /structure of this steps //
 │
 ├── database/
 │   └── fake_data.sql       
