@@ -86,7 +86,7 @@
                         <td><?= $d->cree_par ?></td>
                         <td class="text-center" >
                         <div class="d-flex justify-content-center gap-1">
-                               <a href="index.php?action=editDossier&id=<?= $d->id ?>" class="btn text-white btn-sm" style="font-size: 0.7rem; background-color: #E28421;border-radius: 50%;"><i class="fas fa-edit"></i> </a>
+                               <a href="index.php?action=editDossier&id=<?= $d->id ?>" class="btn text-white btn-warning btn-sm" style="font-size: 0.7rem; border-radius: 50%;"><i class="fas fa-edit"></i> </a>
                                <a href="index.php?action=deleteDossier&id=<?= $d->id ?>&nom_complet=<?= urlencode($d->nom_complet) ?>&patient_id=<?= urlencode($d->patient_id) ?>" class="btn btn-danger btn-sm" style="font-size: 0.7rem;border-radius: 50%;">
                                   <i class="fas fa-trash"></i>
                                </a>                                                                    

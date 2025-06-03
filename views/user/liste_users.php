@@ -72,7 +72,7 @@
                         <td><?= $u->date_creation?></td>
                         <td>
                           <div class="d-flex justify-content-center gap-2">
-                               <a href="index.php?action=editUser&id=<?= $u->id ?>" class="btn text-white btn-sm" style="font-size: 0.8rem; background-color: #E28421;"><i class="fas fa-edit"></i> Modifier</a>
+                               <a href="index.php?action=editUser&id=<?= $u->id ?>" class="btn text-white btn-warning btn-sm" style="font-size: 0.8rem; "><i class="fas fa-edit"></i> Modifier</a>
                                <a href="index.php?action=deleteUser&id=<?= $u->id ?>&nom=<?= urlencode($u->username) ?>" class="btn btn-danger btn-sm" style="font-size: 0.8rem;"><i class="fas fa-trash"></i> Supprimer</a>                                                                    
                           </div>
                         </td>

@@ -96,7 +96,7 @@
                         <td><?= $p->cree_par ?></td>
                         <td class="text-center" >
                             <div class="d-flex justify-content-center gap-1">
-                                <a href="index.php?action=edit&id=<?= $p->id ?>" class="btn text-white btn-sm" style="font-size: 0.7rem; background-color:#E28421;border-radius: 50%; "><i class="fas fa-edit"></i></a>
+                                <a href="index.php?action=edit&id=<?= $p->id ?>" class="btn text-white btn-warning btn-sm" style="font-size: 0.7rem; border-radius: 50%; "><i class="fas fa-edit"></i></a>
                                 <?php 
                                  //if user connecte & session has role (admin) display 'Supprimer' 
                                    if (isset($_SESSION['user']) && $_SESSION['user']['role'] === 'admin'):  ?>
