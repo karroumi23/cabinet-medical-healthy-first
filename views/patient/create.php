@@ -36,17 +36,17 @@
 
                     <div class="col-md-4 mb-3">
                         <label class="form-label">Numéro de Sécurité Sociale</label>
-                        <input type="text" class="form-control" name="numero_securite_sociale" required>
+                        <input type="text" class="form-control" name="numero_securite_sociale" >
                     </div>
 
                     <div class="col-md-6 mb-3">
                         <label class="form-label">Téléphone</label>
-                        <input type="text" class="form-control" name="tel" required>
+                        <input type="text" class="form-control" name="tel" >
                     </div>
 
                     <div class="col-md-6 mb-3">
                         <label class="form-label">Adresse</label>
-                        <textarea class="form-control" name="adresse" rows="3" required></textarea>
+                        <textarea class="form-control" name="adresse" rows="3" ></textarea>
                     </div>
                 </div>
 

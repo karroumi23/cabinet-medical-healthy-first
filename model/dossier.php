@@ -15,12 +15,17 @@
       
        
     public static function createDossier($patient_id, $nom_complet, $groupe_sanguin, $type_maladie, $diagnostic, $date_admission, $date_fin_traitement, $cout_traitement,$acompte_cout,$cree_par )
-      {
-            //  Convert empty date to NULL for compatibility with MySQL DATE
-             if (empty($date_fin_traitement)) {
-                $date_fin_traitement = null;
-              }
+      {      
            $pdo = Database::connect();
+             // Convert empty strings to null 
+                //condition ? value_if_true : value_if_false
+               $groupe_sanguin = empty($groupe_sanguin) ? null : $groupe_sanguin;
+               $type_maladie = empty($type_maladie) ? null : $type_maladie;
+               $diagnostic = empty($diagnostic) ? null : $diagnostic;
+               $date_fin_traitement = empty($date_fin_traitement) ? null : $date_fin_traitement;
+               $cout_traitement = ($cout_traitement === '' || $cout_traitement === null) ? null : $cout_traitement;
+               $acompte_cout = ($acompte_cout === '' || $acompte_cout === null) ? null : $acompte_cout;
+
             $sqlState = $pdo->prepare("INSERT INTO dossier_medical (id,patient_id, nom_complet, groupe_sanguin, type_maladie, diagnostic, date_admission, date_fin_traitement, cout_traitement,acompte_cout,cree_par )
                                       VALUES (NULL,?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"); //CURDATE() it's better than 'DEFAULT'
             $sqlState->execute([$patient_id, $nom_complet, $groupe_sanguin, $type_maladie, $diagnostic, $date_admission, $date_fin_traitement, $cout_traitement,$acompte_cout,$cree_par ]);

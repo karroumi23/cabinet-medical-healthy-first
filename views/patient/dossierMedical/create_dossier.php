@@ -25,7 +25,7 @@
 
                 <div class="mb-3">
                    <label class="form-label">Groupe Sanguin</label>
-                   <select class="form-select" name="groupe_sanguin" required>
+                   <select class="form-select" name="groupe_sanguin" >
                         <option value="">-- Sélectionner --</option>
                         <option value="A+">A+</option>
                         <option value="A-">A-</option>
@@ -41,7 +41,7 @@
 
                 <div class="mb-3">
                     <label class="form-label">Type de Maladie</label>
-                    <input type="text" class="form-control" name="type_maladie" required>
+                    <input type="text" class="form-control" name="type_maladie" >
                 </div>
 
                 <div class="mb-3">
@@ -61,7 +61,7 @@
 
                 <div class="mb-3">
                     <label class="form-label">Coût du traitement (MAD)</label>
-                    <input type="number" step="0.01" class="form-control" name="cout_traitement" required>
+                    <input type="number" step="0.01" class="form-control" name="cout_traitement" >
                 </div>
 
                 <div class="mb-3">
