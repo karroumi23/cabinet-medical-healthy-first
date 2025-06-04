@@ -84,12 +84,7 @@ class AuthController {
          exit;
       }  
 
-    public function deleteUserAction()
-      {
-        $id = $_GET['id'];
-        $nom = $_GET['nom'];
-        require_once 'views/user/delete_user.php';
-      }
+
     public function destroyUserAction($id)
       {
          user::destroyUser($id);

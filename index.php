@@ -48,8 +48,6 @@ $dossierController = new dossierController();
               break; 
         case 'updateUser' :
             $AuthController->updateUserAction();      
-        case 'deleteUser'  :
-           $AuthController->deleteUserAction();
               break; 
         case 'destroyUser'  :
            $AuthController->destroyUserAction($_GET['id']);
@@ -74,7 +72,7 @@ $dossierController = new dossierController();
            $controller->updateAction();
              break;       
         case 'delete':
-          $controller->deleteAction();
+          //$controller->deleteAction();
             break;   
         case 'destroy':
           if (isset($_GET['id'])) {

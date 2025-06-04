@@ -32,7 +32,7 @@
                            $_POST['tel'],
                            $_POST['adresse'],
                            $cree_par);
-           $_SESSION['message'] = "Le patient a été bien ajouter."; //dispay in list patient pg                
+           $_SESSION['message'] = "Le patient a été bien ajouter (Toaster)."; //dispay in list patient pg                
             header('location:index.php?action=list');
           } else {
             include 'views/patient/create.php';
@@ -65,12 +65,7 @@
            exit;
        }
        
-       public function deleteAction()
-      {
-        $id = $_GET['id'];
-        $nom = $_GET['nom'];
-         require_once 'views/patient/delete.php';
-      }
+
       public function destroyAction($id)
       {
           Patient::destroy($id); // ID provenant de la liste des patients

@@ -73,7 +73,11 @@
                         <td>
                           <div class="d-flex justify-content-center gap-2">
                                <a href="index.php?action=editUser&id=<?= $u->id ?>" class="btn text-white btn-warning btn-sm" style="font-size: 0.8rem; "><i class="fas fa-edit"></i> Modifier</a>
-                               <a href="index.php?action=deleteUser&id=<?= $u->id ?>&nom=<?= urlencode($u->username) ?>" class="btn btn-danger btn-sm" style="font-size: 0.8rem;"><i class="fas fa-trash"></i> Supprimer</a>                                                                    
+                               <a href="index.php?action=destroyUser&id=<?= $u->id ?>"
+                                  class="btn btn-danger btn-sm" style="font-size: 0.8rem;" 
+                                  onclick="return confirm('Voulez-vous vraiment supprimer l’utilisateur <?= addslashes($u->username) ?> ?');">
+                                  <i class="fas fa-trash"></i> Supprimer
+                               </a>                                                                    
                           </div>
                         </td>
                        </tr>

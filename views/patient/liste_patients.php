@@ -2,9 +2,9 @@
 
 <!--  message pour confirmer -->
 <?php if (isset($_SESSION['message'])): ?>     
-    <div class="alert alert-success  mt-4 text-center">
-        <?= $_SESSION['message'] ?>
-    </div>
+    <script>
+          toastr.success("<?= $_SESSION['message'] ?>");
+    </script>
     <?php unset($_SESSION['message']); ?>
 <?php endif; ?>
 
@@ -100,7 +100,13 @@
                                 <?php 
                                  //if user connecte & session has role (admin) display 'Supprimer' 
                                    if (isset($_SESSION['user']) && $_SESSION['user']['role'] === 'admin'):  ?>
-                                        <a href="index.php?action=delete&id=<?= $p->id ?>&nom=<?= urlencode($p->nom) ?>" class="btn btn-danger btn-sm" style="font-size: 0.7rem; border-radius: 50%;"><i class="fas fa-trash"></i></a>   
+                                         <!-- supprimer -->
+                                        <a href="index.php?action=destroy&id=<?= $p->id ?>"
+                                           class="btn btn-danger btn-sm" 
+                                           style="font-size: 0.7rem; border-radius: 50%;"
+                                           onclick="return confirm('Voulez-vous vraiment supprimer le patient <?= addslashes($nom_complet) ?> ?');">
+                                           <i class="fas fa-trash"></i>
+                                        </a>   
                                  <?php endif; ?>                                                                  
                             </div>
                         </td>
