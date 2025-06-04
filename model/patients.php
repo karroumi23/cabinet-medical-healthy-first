@@ -29,7 +29,7 @@
             $pdo = Database::connect();
             $sqlState = $pdo->prepare("UPDATE patients SET nom = ?, prenom = ?, age = ?, genre = ?, numero_securite_sociale = ?, tel = ?, adresse = ?  WHERE id = ?");
           return $sqlState->execute([$nom, $prenom, $age, $genre, $numero_securite_sociale, $tel, $adresse, $id]);
-      }
+       }
       
 
       public static function destroy($id)

@@ -98,6 +98,9 @@ $dossierController = new dossierController();
         case 'editDossier' : 
               $dossierController->editDossierAction();
                  break;
+        case 'updateDossier' :
+             $dossierController->updateDossierAction();    
+             break;     
         case 'deleteDossier' : 
           $dossierController->deleteDossierAction(); 
             break;       

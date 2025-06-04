@@ -24,16 +24,17 @@
                 $cree_par = $_SESSION['user']['username'];
                 $patient_id = $_POST['patient_id'];
                 // Call the model to insert the dossier
-                Dossier::createDossier ($_POST['patient_id'],
-                $_POST['nom_complet'],
-                $_POST['groupe_sanguin'],
-                 $_POST['type_maladie'],
-                 $_POST['diagnostic'],
-                 $_POST['date_admission'],
-                 $_POST['date_fin_traitement'],
-                $_POST['cout_traitement'],
-                $_POST['acompte_cout'],
-                $cree_par);
+                Dossier::createDossier 
+                         ($_POST['patient_id'],
+                         $_POST['nom_complet'],
+                         $_POST['groupe_sanguin'], 
+                         $_POST['type_maladie'],
+                         $_POST['diagnostic'],
+                         $_POST['date_admission'],
+                         $_POST['date_fin_traitement'],
+                         $_POST['cout_traitement'],
+                         $_POST['acompte_cout'],
+                         $cree_par);
         
                 // Set session message and redirect
                 $_SESSION['message'] = "Le dossier médical a été créé avec succès .";
@@ -50,6 +51,25 @@
           $id = $_GET['id'];
           $d = Dossier::viewDossier($id); //recuperation info de dossier from datB(id/patient_id...)
           require_once 'views/patient/dossierMedical/edit_dossier.php';
+        }  
+      
+      public function updateDossierAction()
+        {
+               $id = $_POST['id'];
+               $patient_id = $_POST['patient_id'];
+               $nom_complet = $_POST['nom_complet'];
+               $groupe_sanguin = $_POST['groupe_sanguin'];
+               $type_maladie = $_POST['type_maladie'];
+               $diagnostic = $_POST['diagnostic'];
+               $date_admission = $_POST['date_admission'];
+               $date_fin_traitement = $_POST['date_fin_traitement'];
+               $cout_traitement = $_POST['cout_traitement'];
+               $acompte_cout = $_POST['acompte_cout'];
+              
+               Dossier::updateDossier($id,$patient_id, $nom_complet, $groupe_sanguin, $type_maladie, $diagnostic, $date_admission, $date_fin_traitement, $cout_traitement,$acompte_cout);
+               $_SESSION['message'] = "Le dossier avec l'ID $id a été modifié avec succès.";
+              header("Location: index.php?action=dossierMedical&id=". $patient_id);
+           exit;
         }  
 
         public function deleteDossierAction()

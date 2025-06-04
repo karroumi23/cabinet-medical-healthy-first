@@ -4,7 +4,7 @@
 
 
 <?php if (isset($_SESSION['message'])): ?>     <!--  message pour confirmer la suppression -->
-    <div class="alert alert-success text-center">
+    <div class="alert alert-success text-center mt-5">
         <?= $_SESSION['message'] ?>
     </div>
     <?php unset($_SESSION['message']); ?>

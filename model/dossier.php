@@ -27,9 +27,12 @@
         
       }
 
-    public static function updateDossier()
+    public static function updateDossier($id,$patient_id, $nom_complet, $groupe_sanguin, $type_maladie, $diagnostic, $date_admission, $date_fin_traitement, $cout_traitement,$acompte_cout)
       {
-         //..........
+             $pdo = Database::connect();
+             $sqlState = $pdo->prepare("UPDATE dossier_medical SET patient_id = ?, nom_complet = ?, groupe_sanguin = ?, type_maladie = ?, diagnostic = ?, date_admission = ?, date_fin_traitement = ?, cout_traitement = ?, acompte_cout = ?  WHERE id = ?");
+           return $sqlState->execute([$patient_id, $nom_complet, $groupe_sanguin, $type_maladie, $diagnostic, $date_admission, $date_fin_traitement, $cout_traitement,$acompte_cout, $id]);
+        
       }
 
 

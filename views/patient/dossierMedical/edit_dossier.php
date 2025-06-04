@@ -65,7 +65,7 @@
 
 
                     <div class="d-flex justify-content-between mt-4">
-                        <button type="submit" class="btn " style="background: linear-gradient(135deg,rgb(84, 141, 110), #2e6642);">Modifier</button>
+                        <button type="submit" class="btn text-white" style="background: linear-gradient(135deg,rgb(84, 141, 110), #2e6642);">Modifier</button>
                         <a href="index.php?action=listUsers" class="btn btn-secondary">Annuler</a>
                     </div>
                 </form>
