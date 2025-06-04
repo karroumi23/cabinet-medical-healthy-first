@@ -70,14 +70,11 @@ $dossierController = new dossierController();
              break;  
         case 'update' :
            $controller->updateAction();
-             break;       
-        case 'delete':
-          //$controller->deleteAction();
-            break;   
+             break;          
         case 'destroy':
-          if (isset($_GET['id'])) {
-            $controller->destroyAction($_GET['id']);
-           }
+              if (isset($_GET['id'])) {
+                $controller->destroyAction($_GET['id']);
+              }
             break;   
         //------------------------------dossier medical 
         case 'dossierMedical' : 
@@ -100,7 +97,7 @@ $dossierController = new dossierController();
              $dossierController->updateDossierAction();    
              break;     
         case 'deleteDossier' : 
-          $dossierController->deleteDossierAction(); 
+          //$dossierController->deleteDossierAction(); 
             break;       
         case 'destroyDossier' : 
               $dossierController->destroyDossierAction($_GET['id'],$_GET['patient_id']); 

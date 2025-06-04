@@ -87,7 +87,10 @@
                         <td class="text-center" >
                         <div class="d-flex justify-content-center gap-1">
                                <a href="index.php?action=editDossier&id=<?= $d->id ?>" class="btn text-white btn-warning btn-sm" style="font-size: 0.7rem; border-radius: 50%;"><i class="fas fa-edit"></i> </a>
-                               <a href="index.php?action=deleteDossier&id=<?= $d->id ?>&nom_complet=<?= urlencode($d->nom_complet) ?>&patient_id=<?= urlencode($d->patient_id) ?>" class="btn btn-danger btn-sm" style="font-size: 0.7rem;border-radius: 50%;">
+                               <a href="index.php?action=destroyDossier&id=<?= $d->id ?>&patient_id=<?= urlencode($d->patient_id) ?>"
+                                  class="btn btn-danger btn-sm" 
+                                  style="font-size: 0.7rem;border-radius: 50%;"
+                                  onclick="return confirm('Voulez-vous vraiment supprimer le dossier de <?= addslashes($d->nom_complet) ?> avec ID<?= addslashes($d->id) ?> ?');">
                                   <i class="fas fa-trash"></i>
                                </a>                                                                    
                             </div>

@@ -72,14 +72,6 @@
            exit;
         }  
 
-        public function deleteDossierAction()
-          {
-            $id = $_GET['id'];
-            $nom_complet = $_GET['nom_complet'];
-            $patient_id = $_GET['patient_id'];
-            require_once 'views/patient/dossierMedical/delete_dossier.php';
-          }
-
         public function destroyDossierAction($id)
           {
             $patient_id = $_GET['patient_id'];
@@ -90,8 +82,6 @@
             exit;
           } 
  
-
-
 
 
   }
