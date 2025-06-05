@@ -14,7 +14,11 @@
     <title>H ô p i t a l </title>
 </head>
 
-
+<style>
+     body{
+        background: linear-gradient(to right,rgb(144, 212, 104), #e9f5ec);
+     }
+</style>
 <body>
     <?php require_once 'views/include/navbar.php'; ?>
 

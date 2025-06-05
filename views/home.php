@@ -14,7 +14,7 @@ $fullWidth = true;
 <?php endif; ?>
 <style>
     .hero-section {
-        background-image: url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3'); /* Hospital-themed image */
+        background-image: url('image/hopital.png'); /* Hospital-themed image */
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -25,38 +25,12 @@ $fullWidth = true;
         
     }
 
-    .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(0, 0, 0, 0.38); /* Dark transparent overlay */
-        z-index: 1;
-    }
-
-    .hero-content {
-        position: relative;
-        z-index: 2;
-    }
-
-
-    .container {
-    max-width: 100% !important;
-    padding: 0 !important;
-}
 </style>
 
 <div class="hero-section position-relative d-flex justify-content-center align-items-center vh-100 bg-dark text-white overflow-hidden">
     <!-- Overlay with gradient -->
     <div class="position-absolute top-0 start-0 w-100 h-100" 
-         style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)); z-index: 1;">
-    </div>
-
-    <!-- Background image -->
-    <div class="position-absolute top-0 start-0 w-100 h-100" 
-         style="background-image: url('/../Cabinet médical health_first/image/your-background.jpg'); 
-                background-size: cover; background-position: center; z-index: 0;">
+         style="background: linear-gradient(rgba(44, 42, 42, 0.6), rgba(32, 32, 32, 0.7)); z-index: 1;">
     </div>
 
     <!-- Hero Content -->
