@@ -1,17 +1,9 @@
 <?php
-$fullWidth = true;
+$fullWidth = true; //to display the background with width 100% (just home page )
 
 ?>
-
-
-
 <?php ob_start(); ?>
-<?php if (isset($_SESSION['message'])): ?>     <!--  message pour confirmer la suppression -->
-    <div class="alert alert-success text-center mt-4" style="color: green; font-size: 20px; font-weight: bold;">
-        <?= $_SESSION['message'] ?>
-    </div>
-    <?php unset($_SESSION['message']); ?>
-<?php endif; ?>
+
 <style>
     .hero-section {
         background-image: url('image/hopital.png'); /* Hospital-themed image */
@@ -25,13 +17,36 @@ $fullWidth = true;
         
     }
 
+    .alert-overlay {
+        background-color: rgba(40, 167, 69, 0.8); /* green with opacity */
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+        padding: 10px 20px;
+        border-radius: 10px;
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 999;
+    }
+
 </style>
 
 <div class="hero-section position-relative d-flex justify-content-center align-items-center vh-100 bg-dark text-white overflow-hidden">
+
     <!-- Overlay with gradient -->
     <div class="position-absolute top-0 start-0 w-100 h-100" 
          style="background: linear-gradient(rgba(44, 42, 42, 0.6), rgba(32, 32, 32, 0.7)); z-index: 1;">
     </div>
+
+        <!--  SESSION MESSAGE -->
+        <?php if (isset($_SESSION['message'])): ?>
+          <div class="alert-overlay text-center">
+             <?= $_SESSION['message'] ?>
+          </div>
+          <?php unset($_SESSION['message']); ?>
+        <?php endif; ?>
 
     <!-- Hero Content -->
     <div class="hero-content text-center position-relative z-2 px-3">

@@ -39,7 +39,7 @@
 
                     <div class="mb-3">
                         <label class="form-label">Type de Maladie</label>
-                        <input type="text" class="form-control" name="type_maladie" value="<?= $d->type_maladie?>" required>
+                        <input type="text" class="form-control" name="type_maladie" value="<?= $d->type_maladie?>" >
                     </div>
                     <div class="mb-3">
                        <label class="form-label">Diagnostic</label>
@@ -55,7 +55,7 @@
                    </div>
                    <div class="mb-3">
                       <label class="form-label">Coût du traitement (MAD)</label>
-                      <input type="number" step="0.01" class="form-control" name="cout_traitement" value="<?= $d->cout_traitement ?>" required>
+                      <input type="number" step="0.01" class="form-control" name="cout_traitement" value="<?= $d->cout_traitement ?>" >
                    </div>
                    <div class="mb-3">
                       <label class="form-label">Acompte (MAD)</label>
