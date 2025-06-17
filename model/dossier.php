@@ -17,7 +17,7 @@
     public static function createDossier($patient_id, $nom_complet, $groupe_sanguin, $type_maladie, $diagnostic, $date_admission, $date_fin_traitement, $cout_traitement,$acompte_cout,$cree_par )
       {      
            $pdo = Database::connect();
-             // Convert empty strings to null 
+             // to accepte empty inputs - Convert empty strings to null 
                 //condition ? value_if_true : value_if_false
                $groupe_sanguin = empty($groupe_sanguin) ? null : $groupe_sanguin;
                $type_maladie = empty($type_maladie) ? null : $type_maladie;
@@ -35,7 +35,7 @@
     public static function updateDossier($id,$patient_id, $nom_complet, $groupe_sanguin, $type_maladie, $diagnostic, $date_admission, $date_fin_traitement, $cout_traitement,$acompte_cout)
       {
            $pdo = Database::connect();
-              // Convert empty strings to null 
+              // to accepte empty inputs - Convert empty strings to null  
                 //condition ? value_if_true : value_if_false
                 $groupe_sanguin = empty($groupe_sanguin) ? null : $groupe_sanguin;
                 $type_maladie = empty($type_maladie) ? null : $type_maladie;
@@ -43,7 +43,7 @@
                 $date_fin_traitement = empty($date_fin_traitement) ? null : $date_fin_traitement;
                 $cout_traitement = ($cout_traitement === '' || $cout_traitement === null) ? null : $cout_traitement;
                 $acompte_cout = ($acompte_cout === '' || $acompte_cout === null) ? null : $acompte_cout; 
-                            
+
            $sqlState = $pdo->prepare("UPDATE dossier_medical SET patient_id = ?, nom_complet = ?, groupe_sanguin = ?, type_maladie = ?, diagnostic = ?, date_admission = ?, date_fin_traitement = ?, cout_traitement = ?, acompte_cout = ?  WHERE id = ?");
            return $sqlState->execute([$patient_id, $nom_complet, $groupe_sanguin, $type_maladie, $diagnostic, $date_admission, $date_fin_traitement, $cout_traitement,$acompte_cout, $id]);
         

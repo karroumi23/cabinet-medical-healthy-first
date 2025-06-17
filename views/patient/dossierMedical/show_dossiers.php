@@ -3,12 +3,27 @@
 <?php ob_start(); ?>
 
 
-<?php if (isset($_SESSION['message'])): ?>     <!--  message pour confirmer la suppression -->
-    <div class="alert alert-success text-center mt-5">
-        <?= $_SESSION['message'] ?>
-    </div>
+<!--  message pour confirmer (toastr) -->
+<?php if (isset($_SESSION['message'])): ?>
+    <?php $toastMessage = addslashes($_SESSION['message']); ?>
+     <!--style the toastr -->
+     <style>  
+        .toast {
+           text-align: center !important;
+           width: 50% !important;
+         }
+     </style>
+    <script> 
+        document.addEventListener("DOMContentLoaded", function () {
+            toastr.options = {
+                "positionClass": "toast-top-center", // <- change to desired location
+            };
+            toastr.success("<?= $toastMessage ?>");
+        });
+    </script>
     <?php unset($_SESSION['message']); ?>
 <?php endif; ?>
+
 
                 <!-- Total Patients -->
                 <div class="row mb-4 mt-5">

@@ -1,15 +1,29 @@
 <?php ob_start(); ?>
 
-<!--  message pour confirmer -->
-<?php if (isset($_SESSION['message'])): ?>     
-    <script>
-          toastr.success("<?= $_SESSION['message'] ?>");
+<!--  message pour confirmer (toastr) -->
+<?php if (isset($_SESSION['message'])): ?>
+    <?php $toastMessage = addslashes($_SESSION['message']); ?>
+     <!--style the toastr -->
+     <style>  
+        .toast {
+           text-align: center !important;
+           width: 50% !important;
+         }
+     </style>
+    <script> 
+        document.addEventListener("DOMContentLoaded", function () {
+            toastr.options = {
+                "positionClass": "toast-top-center", // <- change to desired location
+            };
+            toastr.success("<?= $toastMessage ?>");
+        });
     </script>
     <?php unset($_SESSION['message']); ?>
 <?php endif; ?>
 
+
             <!-- Total Patients -->
-            <div class="row mb-4 mt-5">
+     <div class="row mb-4 mt-5">
                 <div class="col-md-3 mb-3">
                     <div class="card border-0 shadow-sm h-100" style="border-radius: 16px; background:rgb(243, 245, 247);">
                         <div class="card-body p-4">
@@ -28,9 +42,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
+     </div>
 
-    <div class="card border-0 shadow-sm h-100 mb-5" style="border-radius: 16px; background:rgb(243, 245, 247);">
+        <div class="card border-0 shadow-sm h-100 mb-5" style="border-radius: 16px; background:rgb(243, 245, 247);">
         <div class="card-header bg-transparent border-0 p-4">
            <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
 

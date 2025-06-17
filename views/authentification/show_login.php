@@ -1,17 +1,32 @@
 <?php ob_start(); ?>
 
-<div class="container w-75 my-4 mt-5 bg-light p-5 rounded shadow">
+ <div class="container w-75 my-4 mt-5 bg-light p-5 rounded shadow">
     <h3 class="text-center mb-4 " style="color:#417A58;">Connexion</h3>
 
 
-     <?php if (isset($_SESSION['message'])): ?>  <!--success message after add user -->
-    <div class="alert alert-success">
-        <?= $_SESSION['message'] ?>
-    </div>
-    <?php unset($_SESSION['message']); ?>
+   <!--  message pour confirmer (toastr) -->
+    <?php if (isset($_SESSION['message'])): ?>
+      <?php $toastMessage = addslashes($_SESSION['message']); ?>
+         <!--style the toastr -->
+         <style>  
+         .toast {
+           text-align: center !important;
+           width: 50% !important;
+         }
+         </style>
+        <script> 
+          document.addEventListener("DOMContentLoaded", function () {
+            toastr.options = {
+                "positionClass": "toast-top-center", // <- change to desired location
+            };
+            toastr.success("<?= $toastMessage ?>");
+             });
+        </script>
+      <?php unset($_SESSION['message']); ?>
     <?php endif; ?>
 
-    <?php if (isset($error)): ?>
+
+    <?php if (isset($error)): ?> <!--error message-->
         <div class="alert alert-danger" role="alert">
             <?= $error ?>
         </div>

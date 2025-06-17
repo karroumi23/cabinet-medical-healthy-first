@@ -23,7 +23,7 @@ $dossierController = new dossierController();
           $AuthController->showLogincAtion();
             break;  
         case 'login':
-              if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+              if ($_SERVER['REQUEST_METHOD'] === 'POST') { //checking what type of HTTP (post-get)
           $AuthController->login();
               } else {
                 $AuthController->showLogincAtion();
