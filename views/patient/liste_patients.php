@@ -50,7 +50,7 @@
 
              <h4 class="mb-4 text-center">Liste des Patients</h4>
              
-             <div class="d-flex gap-2">
+             <div class="d-flex gap-4">
                             <a href="index.php?action=create" class="btn btn-sm text-white shadow-sm" 
                                style="background: linear-gradient(135deg,rgb(84, 141, 110), #2e6642); border: none; border-radius: 10px; padding: 9px 18px; font-weight: 600;">
                                 <i class="fas fa-plus me-2"></i>Nouveau Patient
@@ -72,7 +72,7 @@
             </div>
            <div class="table-responsive custom-table w-100" >
            <table class="table table-hover table-striped align-middle  p-2 text-center">
-               <thead class="table-dark text-center" >
+               <thead class="table-success text-center" >
                 <tr>
                     <th style="width: 10px;">Id</th>
                     <th style="width: 80px;">nom-co</th>
