@@ -8,13 +8,20 @@
     
      public function indexAction() //LISTE PATIENTS 
       {
-        $patients = Patient::getAll();     
-          // dossier status (there is dossier_M or not )
-         foreach ($patients as $p) {
-              $p->has_dossier = !empty(Dossier::getDossier($p->id));
-           }
+        // If the search exists, we store it in $search.
+        // If not, we just use an empty string ''.
+        //(trim => removes any spaces))
+        // condition ? value_if_true : value_if_false;
+        $search = isset($_GET['search']) ? trim($_GET['search']) : '';
+        $patients = Patient::getAll($search); 
+    
+        // dossier status
+        foreach ($patients as $p) {
+            $p->has_dossier = !empty(Dossier::getDossier($p->id));
+        }
          require_once 'views/patient/liste_patients.php';
       }
+
        
       public function createAction()
        {

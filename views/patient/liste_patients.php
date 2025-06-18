@@ -55,13 +55,21 @@
                                style="background: linear-gradient(135deg,rgb(84, 141, 110), #2e6642); border: none; border-radius: 10px; padding: 9px 18px; font-weight: 600;">
                                 <i class="fas fa-plus me-2"></i>Nouveau Patient
                             </a>
-                            <button class="btn btn-outline-secondary btn-sm" style="border-radius: 8px;">
-                                <i class="fas fa-filter me-1"></i>Filtrer
-                            </button>
+                            <!-- filter de recherche -->
+                            <form action="index.php" method="GET">
+                                <input type="hidden" name="action" value="list">
+                                <div class="input-group mb3">
+                                    <input type="text" name="search" value="<?php if(isset($_GET['search'])){echo $_GET['search'];} ?>" class="form-control" placeholder="Rechercher par nom... ">
+                                    <button class="btn btn-outline-secondary btn-sm" style="border-radius: 8px;">
+                                           <i class="fas fa-filter me-1"></i>Filtrer
+                                    </button>
+                                </div>
+                            </form>
+                
                             <button class="btn btn-outline-secondary btn-sm" style="border-radius: 8px;">
                                 <i class="fas fa-download me-1"></i>Exporter
                             </button>
-                        </div>
+            </div>
            <div class="table-responsive custom-table w-100" >
            <table class="table table-hover table-striped align-middle  p-2 text-center">
                <thead class="table-dark text-center" >

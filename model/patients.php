@@ -7,12 +7,19 @@
    
 
         //'private static' You can call the method directly on the class (Patient::getAll())
-      public static function getAll()
-      {
-        $pdo = Database::connect();  
-        return $pdo->query('SELECT * FROM patients ORDER BY id DESC')->fetchAll(PDO::FETCH_OBJ);
+      public static function getAll($search = '') // $search or 'empty string'
+        {
+            $pdo = Database::connect();
         
-      }
+            if ($search !== '') {
+                $sql = "SELECT * FROM patients WHERE nom LIKE :search OR prenom LIKE :search ORDER BY id DESC";
+                $stmt = $pdo->prepare($sql);
+                $stmt->execute([':search' => '%' . $search . '%']);
+                return $stmt->fetchAll(PDO::FETCH_OBJ);
+            } else {
+                return $pdo->query('SELECT * FROM patients ORDER BY id DESC')->fetchAll(PDO::FETCH_OBJ);
+            }
+        }
 
       public static function create($nom, $prenom, $age, $genre, $numero_securite_sociale, $tel, $adresse, $cree_par)
       {

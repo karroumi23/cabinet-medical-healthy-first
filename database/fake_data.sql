@@ -5,11 +5,15 @@
 
 
 INSERT INTO users (id, username, password, role, date_creation) VALUES
-(8, 'fatiha', '$2y$10$giKIoVfqYH12S7RYySswHuE6wpAIzztbalZzfUkbpBgcTGt7dYmWe', 'admin', '2025-05-21'),
-(18, 'soukaina', '$2y$10$1V932WI8amXF/mXQVUday.9559cTzOviSAimlMY0HzxEDWy097lmq', 'user', '2025-05-22'),
-(20, 'anass', '$2y$10$.whmexQ5A/YZHPEHeZB.lOGoiXA0UGAqQxk64WMvBBBzx296KTUVi', 'admin', '2025-05-27'),
-(22, 'chaima', '$2y$10$VEXNzLlIilLPqHTs0mD2NOb/B6WRfB7WHfNgsfmfziYtAxl2xQSbC', 'user', '2025-05-27'),
-(23, 'wahiba', '$2y$10$p2KNzXbVI1VvoL0S330PcOYL9RWQy6LFVSPdiipoMHJr77rKMoy4K', 'user', '2025-05-27');
+(1, 'admin', '$2y$10$eIMi14eJkYskci/AHfW0Sev.MPb3Q7zVP2h1lRIUVzWyhfRzmi6ya', 'admin', '2025-06-18'),
+(2, 'user',  '$2y$10$eIMi14eJkYskci/AHfW0Sev.MPb3Q7zVP2h1lRIUVzWyhfRzmi6ya', 'user',  '2025-06-18');
+
+-- INSERT INTO users (id, username, password, role, date_creation) VALUES
+-- (8, 'fatiha', '$2y$10$giKIoVfqYH12S7RYySswHuE6wpAIzztbalZzfUkbpBgcTGt7dYmWe', 'admin', '2025-05-21'),
+-- (18, 'soukaina', '$2y$10$1V932WI8amXF/mXQVUday.9559cTzOviSAimlMY0HzxEDWy097lmq', 'user', '2025-05-22'),
+-- (20, 'anass', '$2y$10$.whmexQ5A/YZHPEHeZB.lOGoiXA0UGAqQxk64WMvBBBzx296KTUVi', 'admin', '2025-05-27'),
+-- (22, 'chaima', '$2y$10$VEXNzLlIilLPqHTs0mD2NOb/B6WRfB7WHfNgsfmfziYtAxl2xQSbC', 'user', '2025-05-27'),
+-- (23, 'wahiba', '$2y$10$p2KNzXbVI1VvoL0S330PcOYL9RWQy6LFVSPdiipoMHJr77rKMoy4K', 'user', '2025-05-27');
 
 
 INSERT INTO patients (id, nom, prenom, age, genre, numero_securite_sociale, tel, adresse, date_ajout, cree_par) VALUES
