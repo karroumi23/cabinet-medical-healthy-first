@@ -80,5 +80,25 @@
           header('Location: index.php?action=list');
           exit;
       }
-      
+
+      //-------------------------------------------------------------export
+
+      public function exportAction() {
+        require_once 'vendor/autoload.php';
+        //to export just search reselt 
+        $search = isset($_GET['search']) ? trim($_GET['search']) : '';
+        $patients = Patient::getAll($search);
+    
+        ob_start();
+        include 'views/patient/pdf_patients.php'; //pdf view
+        $html = ob_get_clean();
+    
+        $dompdf = new \Dompdf\Dompdf();
+        $dompdf->loadHtml($html);
+        $dompdf->setPaper('A4', 'landscape');
+        $dompdf->render();
+        $dompdf->stream('patients.pdf', ['Attachment' => true]); 
+        exit;
+    }
+    
   }     

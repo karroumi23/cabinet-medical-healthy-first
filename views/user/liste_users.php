@@ -55,7 +55,7 @@
 
               <h4 class="mb-4 text-center">Liste des utilisateurs</h4>
                   <!-- head table -->
-              <div class="d-flex gap-2">   
+              <div class="d-flex gap-4">   
                             <a class="btn text-white shadow-sm" href="index.php?action=createUser"  
                                style="background: linear-gradient(135deg,rgb(84, 141, 110), #2e6642); border: none; border-radius: 10px; padding: 9px 18px; font-weight: 600;">
                                 <i class="fas fa-plus me-2"></i>Ajouter Utilistaeur

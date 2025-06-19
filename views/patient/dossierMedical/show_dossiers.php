@@ -59,9 +59,7 @@
                                style="background: linear-gradient(135deg,rgb(84, 141, 110), #2e6642); border: none; border-radius: 10px; padding: 9px 18px; font-weight: 600;">
                                 <i class="fas fa-plus me-2"></i>Nouveau Dossier
                             </a>
-                            <button class="btn btn-outline-secondary btn-sm" style="border-radius: 8px;">
-                                <i class="fas fa-filter me-1"></i>Filtrer
-                            </button>
+
                             <button class="btn btn-outline-secondary btn-sm" style="border-radius: 8px;">
                                 <i class="fas fa-download me-1"></i>Exporter
                             </button>

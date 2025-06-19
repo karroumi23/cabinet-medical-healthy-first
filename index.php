@@ -76,6 +76,11 @@ $dossierController = new dossierController();
                 $controller->destroyAction($_GET['id']);
               }
             break;   
+            //*****export****/
+        case 'export':
+           $controller->exportAction();
+            break; 
+         
         //------------------------------dossier medical 
         case 'dossierMedical' : 
           if (isset($_GET['id'])) {

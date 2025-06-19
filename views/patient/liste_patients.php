@@ -65,10 +65,13 @@
                                     </button>
                                 </div>
                             </form>
-                
-                            <button class="btn btn-outline-secondary btn-sm" style="border-radius: 8px;">
+                              <!-- to export just search reselt -->
+                            <a href="index.php?action=export<?php if (isset($_GET['search'])) echo '&search=' . urlencode($_GET['search']); ?>"  
+                                class="btn btn-outline-secondary btn-sm" style="border-radius: 8px;">
                                 <i class="fas fa-download me-1"></i>Exporter
-                            </button>
+                            </a>
+
+
             </div>
            <div class="table-responsive custom-table w-100" >
            <table class="table table-hover table-striped align-middle  p-2 text-center">
