@@ -60,7 +60,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label">Coût du traitement (MAD)</label>
+                    <label class="form-label">Coût Total (MAD)</label>
                     <input type="number" step="0.01" class="form-control" name="cout_traitement" >
                 </div>
 

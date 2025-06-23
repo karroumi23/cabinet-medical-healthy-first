@@ -25,7 +25,7 @@
       {
           $pdo = Database::connect();
           $sqlState = $pdo->prepare("INSERT INTO patients (id, nom, prenom, age, genre, numero_securite_sociale, tel, adresse, date_ajout, cree_par)
-                                    VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, DEFAULT, ?)"); //CURDATE() it's better than 'DEFAULT'
+                                    VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, DEFAULT, ?)"); 
           $sqlState->execute([$nom, $prenom, $age, $genre, $numero_securite_sociale, $tel, $adresse,$cree_par]);
           
       }

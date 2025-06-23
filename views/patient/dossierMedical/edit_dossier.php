@@ -54,7 +54,7 @@
                       <input type="date" class="form-control" name="date_fin_traitement" value="<?= $d->date_fin_traitement ?>" >
                    </div>
                    <div class="mb-3">
-                      <label class="form-label">Coût du traitement (MAD)</label>
+                      <label class="form-label">Coût Total (MAD)</label>
                       <input type="number" step="0.01" class="form-control" name="cout_traitement" value="<?= $d->cout_traitement ?>" >
                    </div>
                    <div class="mb-3">
