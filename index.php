@@ -97,16 +97,27 @@ $dossierController = new dossierController();
              break;
         case 'editDossier' : 
               $dossierController->editDossierAction();
-                 break;
+              break;
         case 'updateDossier' :
              $dossierController->updateDossierAction();    
              break;     
         case 'deleteDossier' : 
-          //$dossierController->deleteDossierAction(); 
-            break;       
+              break;       
         case 'destroyDossier' : 
               $dossierController->destroyDossierAction($_GET['id'],$_GET['patient_id']); 
-                break;          
+              break;   
+        //*****export****/
+        case 'exportDossier':
+          if (isset($_GET['id'])) {
+              $dossierController->exportDossierAction($_GET['id']);
+          }
+               break;
+        case 'exportAllDossiers':
+          if (isset($_GET['id'])) {
+              $dossierController->exportAllDossiersAction($_GET['id']);
+          }
+               break;
+                     
       }
 
 

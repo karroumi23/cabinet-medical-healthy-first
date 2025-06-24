@@ -72,7 +72,7 @@
            exit;
         }  
 
-        public function destroyDossierAction($id)
+      public function destroyDossierAction($id)
           {
             $patient_id = $_GET['patient_id'];
             Dossier::destroyDossier($id);
@@ -82,6 +82,73 @@
             exit;
           } 
  
+          //-------------------------------------------------------------export
+        
+          public function exportDossierAction($id)
+          {
+              // Get the dossier info
+              $dossier = Dossier::viewDossier($id);
+          
+              if (!$dossier) {
+                  $_SESSION['message'] = "Dossier introuvable.";
+                  header("Location: index.php?action=dossierMedical&id=" . $_GET['patient_id']);
+                  exit;
+              }
+          
+              require_once __DIR__ . '/../vendor/autoload.php';
+              $mpdf = new \Mpdf\Mpdf();
+          
+              // Pass data to the view
+              $data = [
+                  'dossier' => $dossier,
+                  'isSingle' => true
+              ];
+          
+              // Render the view
+              $html = $this->renderView('patient/dossierMedical/pdf_dossier.php', $data);
+          
+              $mpdf->WriteHTML($html);
+              $mpdf->Output("Dossier_".$dossier->id.".pdf", "D");
+              exit;
+          }
+
+
+          public function exportAllDossiersAction($patient_id)
+          {
+              $dossiers = Dossier::getDossier($patient_id);
+          
+              if (empty($dossiers)) {
+                  $_SESSION['message'] = "Aucun dossier à exporter.";
+                  header("Location: index.php?action=dossierMedical&id=" . $patient_id);
+                  exit;
+              }
+          
+              require_once __DIR__ . '/../vendor/autoload.php';
+              $mpdf = new \Mpdf\Mpdf();
+          
+              // Pass data to the view
+              $data = [
+                  'dossiers' => $dossiers,
+                  'patient_id' => $patient_id,
+                  'isSingle' => false
+              ];
+          
+              // Render the view
+              $html = $this->renderView('patient/dossierMedical/pdf_dossier.php', $data);
+          
+              $mpdf->WriteHTML($html);
+              $mpdf->Output("Dossiers_Patient_".$patient_id.".pdf", "D");
+              exit;
+          }
+          
+          // Helper method to render views
+          private function renderView($viewPath, $data = [])
+          {
+              extract($data);
+              ob_start();
+              include __DIR__ . '/../views/' . $viewPath;
+              return ob_get_clean();
+          }
 
 
   }

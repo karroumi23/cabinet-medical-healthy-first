@@ -155,9 +155,15 @@
                    style="background: linear-gradient(135deg,rgb(84, 141, 110), #2e6642); border: none; border-radius: 10px; padding: 12px 24px; font-weight: 600;">
                     <i class="fas fa-plus me-2"></i>Nouveau Dossier
                 </a>
-                <button class="btn btn-outline-secondary btn-sm" style="border-radius: 8px; padding: 12px 20px;">
+                <a class="btn btn-outline-secondary btn-sm" 
+   href="index.php?action=exportAllDossiers&id=<?= $patient_id ?>" 
+   style="border-radius: 8px; padding: 12px 20px;">
+   <i class="fas fa-download me-1"></i>Exporter Tous
+</a>
+
+                <!-- <button class="btn btn-outline-secondary btn-sm" style="border-radius: 8px; padding: 12px 20px;">
                     <i class="fas fa-download me-1"></i>Exporter
-                </button>
+                </button> -->
             </div>
         </div>
     </div>
@@ -268,6 +274,11 @@
                            class="btn btn-warning text-white btn-sm">
                             <i class="fas fa-edit me-1"></i>Modifier
                         </a>
+                        <a href="index.php?action=exportDossier&id=<?= $d->id ?>" 
+   class="btn btn-success btn-sm">
+   <i class="fas fa-file-pdf me-1"></i>PDF
+</a>
+
                         <a href="index.php?action=destroyDossier&id=<?= $d->id ?>&patient_id=<?= urlencode($d->patient_id) ?>"
                            class="btn btn-danger btn-sm" 
                            onclick="return confirm('Voulez-vous vraiment supprimer le dossier de <?= addslashes($d->nom_complet) ?> avec ID <?= addslashes($d->id) ?> ?');">
@@ -280,16 +291,6 @@
     <?php endforeach; ?> 
 </div>
 
-<!-- No Results Message -->
-<div id="noResults" class="text-center py-5" style="display: none;">
-    <div class="card border-0 shadow-sm" style="border-radius: 16px; background: rgb(243, 245, 247);">
-        <div class="card-body p-5">
-            <i class="fas fa-search fa-3x text-muted mb-3"></i>
-            <h5 class="text-muted">Aucun dossier trouvé</h5>
-            <p class="text-muted">Essayez de modifier vos critères de recherche</p>
-        </div>
-    </div>
-</div>
 
 <script>
 // Search and Filter Functionality
