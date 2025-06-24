@@ -73,7 +73,7 @@
     .blood-type {
         background: linear-gradient(135deg, #dc3545, #c82333);
         color: white;
-    }
+      }
     
     .cost-highlight {
         background: linear-gradient(135deg, #28a745, #1e7e34);
@@ -81,7 +81,7 @@
         padding: 0.5rem 1rem;
         border-radius: 10px;
         font-weight: 600;
-    }
+      }
     
     .action-buttons .btn {
         border-radius: 8px;
