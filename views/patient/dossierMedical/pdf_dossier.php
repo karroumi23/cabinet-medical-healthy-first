@@ -22,20 +22,19 @@
             line-height: 1.3; 
             color: #333;
             font-size: 11px;
-            margin: 10px;
+            margin: 10px ;
         }
         
         .header {
             text-align: center;
-            margin-bottom: 8px;
             padding: 12px;
-            background: linear-gradient(135deg, rgb(84, 141, 110), #2e6642);
+            background: linear-gradient(135deg, rgb(192, 11, 11),rgb(248, 4, 98));
             color: white;
             border-radius: 6px;
         }
         
         .header h1 {
-            font-size: 16px;
+            font-size: 20px;
             margin-bottom: 4px;
             font-weight: bold;
         }
@@ -55,6 +54,7 @@
         .dossier {
             border: 1px solid #e0e0e0;
             margin-bottom: 15px;
+            margin-top: 50px;
             padding: 12px;
             page-break-inside: avoid;
             border-radius: 6px;
@@ -74,9 +74,10 @@
         .dossier-header h3 {
             font-size: 14px;
             margin-bottom: 2px;
+            color: whitesmoke;
         }
         
-        .dossier-header .patient-id {
+        .dossier-header  {
             font-size: 10px;
             opacity: 0.9;
         }
@@ -279,7 +280,7 @@
         
         .footer {
             text-align: center;
-            margin-top: 5px;
+            margin-top: 50px;
             padding: 8px;
             border-top: 1px solid #dee2e6;
             font-size: 9px;
@@ -329,37 +330,48 @@
             margin-bottom: 6px;
         }
         
-        @media print {
-            body {
-                margin: 5px;
-                font-size: 10px;
-            }
-            
-            .dossier {
-                page-break-inside: avoid;
-                page-break-after: always;
-                box-shadow: none;
-                margin-bottom: 0;
-            }
-            
-            .dossier:last-child {
-                page-break-after: avoid;
-            }
-            
-            .header {
-                margin-bottom: 5px;
-                padding: 8px;
-            }
-            
-            .section-content {
-                padding: 6px;
-            }
-            
-            .footer {
-                margin-top: 10px;
-                padding: 5px;
-            }
-        }
+
+    @media print {
+     body {
+         margin: 5px;
+        font-size: 10px;
+       }
+    
+     .dossier {
+         page-break-inside: avoid;
+        /* Remove the page-break-after: always; */
+        box-shadow: none;
+        margin-bottom: 0;
+      }
+    
+     /* Only add page break between dossiers, not after the last one */
+     .dossier:not(:last-child) {
+        page-break-after: always;
+      }
+    
+    /* Ensure the last dossier doesn't force a page break */
+     .dossier:last-child {
+        page-break-after: avoid;
+     }
+    
+     .header {
+         margin-bottom: 5px;
+        padding: 8px;
+    }
+    
+     .section-content {
+        padding: 6px;
+     }
+    
+      .footer {
+        margin-top: 10px;
+        padding: 5px;
+        /* Prevent footer from creating page breaks */
+        page-break-inside: avoid;
+        page-break-after: avoid;
+       }
+    }
+
    </style>
 </head>
 <body>
@@ -367,7 +379,7 @@
     <?php if ($isSingle): ?>
         <!-- SINGLE DOSSIER TEMPLATE -->
         <div class="header">
-            <h1>🏥 Dossier Médical #<?= $dossier->id ?></h1>
+            <h1> #<?= $dossier->id ?> Dossier Médical </h1>
             <h2><?= htmlspecialchars($dossier->nom_complet) ?></h2>
             <div class="date-generated">
                 Généré le <?= date('d/m/Y à H:i') ?>
@@ -385,11 +397,14 @@
                             <div class="info-value"><?= htmlspecialchars($dossier->patient_id) ?></div>
                         </div>
                         <div class="info-item">
-                            <div class="info-label">Nom:</div>
+                            <div class="info-label">Le nom complet : </div>
                             <div class="info-value"><?= htmlspecialchars($dossier->nom_complet) ?></div>
                         </div>
                         <div class="info-item">
                             <div class="info-label">Groupe:</div>
+                            <span class="status-badge blood-type">
+                                 <?= $dossier->groupe_sanguin ?>
+                            </span>
                             <div class="info-value">
                                 <span class="blood-group"><?= htmlspecialchars($dossier->groupe_sanguin) ?></span>
                             </div>
@@ -400,15 +415,15 @@
 
             <!-- Medical Information Section -->
             <div class="section">
-                <div class="section-title">🩺 Informations Médicales</div>
+                <div class="section-title"> Informations Médicales</div>
                 <div class="section-content">
                     <div class="info-item">
-                        <div class="info-label">Maladie:</div>
+                        <div class="info-label">Type de maladie :</div>
                         <div class="info-value"><?= htmlspecialchars($dossier->type_maladie) ?></div>
                     </div>
                     
                     <div class="diagnostic-box">
-                        <strong>Diagnostic:</strong><br>
+                    <div class="info-label">Diagnostique:</div>
                         <?= nl2br(htmlspecialchars($dossier->diagnostic)) ?>
                     </div>
                 </div>
@@ -473,14 +488,18 @@
     <?php else: ?>
 
         <!--********************************************** MULTIPLE DOSSIERS TEMPLATE -->
+        
         <div class="header">
             <h1> Tous les Dossiers Médicaux</h1>
             <h2>Patient ID: <?= htmlspecialchars($patient_id) ?></h2>
+            <div>
+                 Total: <?= count($dossiers) ?> dossiers
+            </div>            
             <div class="date-generated">
-                Rapport généré le <?= date('d/m/Y') ?> - Total: <?= count($dossiers) ?> dossiers
+                Rapport généré le <?= date('d/m/Y') ?>                 
             </div>
         </div>
-
+         
         <?php foreach ($dossiers as $dossier): ?>
             <div class="dossier">
                 <div class="dossier-header">
@@ -500,16 +519,16 @@
                                 <div class="info-item">
                                     <div class="info-label">Groupe:</div>
                                     <span class="status-badge blood-type">
-                                        <i class="fas fa-tint"></i> <?= $dossier->groupe_sanguin ?>
+                                        <?= $dossier->groupe_sanguin ?>
                                     </span>
                                 </div>
                                 <div class="info-item">
-                                    <div class="info-label">Maladie:</div>
+                                    <div class="info-label">Type de maladie :</div>
                                     <div class="info-value"><?= htmlspecialchars($dossier->type_maladie) ?></div>
                                 </div>
                                 
                                 <div class="diagnostic-box">
-                                    <div class="info-label">Diagnostic:</div>
+                                    <div class="info-label">Diagnostique:</div>
                                     <?= nl2br(htmlspecialchars($dossier->diagnostic)) ?>
                                 </div>
                             </div>
@@ -568,26 +587,20 @@
                                     </div>
                                 </div>
                                 
-                                <div style="text-align: center; margin-top: 6px;">
-                                    <?php if ($dossier->date_fin_traitement): ?>
-                                        <span class="status-badge status-termine"> Terminé</span>
-                                    <?php else: ?>
-                                        <span class="status-badge status-en-cours">En Cours</span>
-                                    <?php endif; ?>
-                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            <div class="footer">
-               <p><strong> Système de Gestion Médicale</strong></p>
-               <p>Rapport généré le <?= date('d/m/Y à H:i:s') ?> - Document confidentiel</p>
-           </div>
+
 
             </div>
 
-
+            <div class="footer">
+               <p><strong> Système de Gestion Médicale</strong></p>
+               <p>Rapport généré le <?= date('d/m/Y à H:i:s') ?> - <span style="background: red;">Document confidentiel</span></p>
+           </div>
         <?php endforeach; ?>
+        
     <?php endif; ?>
 
 

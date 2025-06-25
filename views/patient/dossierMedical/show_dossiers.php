@@ -41,7 +41,7 @@
     }
     
     .info-item {
-        display: flex;
+        /* display: flex; */
         align-items: center;
         margin-bottom: 0.75rem;
         padding: 0.5rem;
@@ -51,15 +51,15 @@
     }
     
     .info-label {
-        font-weight: 600;
+        font-weight: bold;
         color: #495057;
-        min-width: 120px;
+        min-width: 90px;
         font-size: 0.85rem;
     }
     
     .info-value {
         color: #212529;
-        font-weight: 500;
+        font-weight: 400;
     }
     
     .status-badge {
@@ -82,7 +82,9 @@
         border-radius: 10px;
         font-weight: 600;
       }
-    
+      .action-buttons{
+        display: flex;
+      }
     .action-buttons .btn {
         border-radius: 8px;
         padding: 0.5rem 1rem;
@@ -156,14 +158,12 @@
                     <i class="fas fa-plus me-2"></i>Nouveau Dossier
                 </a>
                 <a class="btn btn-outline-secondary btn-sm" 
-   href="index.php?action=exportAllDossiers&id=<?= $patient_id ?>" 
-   style="border-radius: 8px; padding: 12px 20px;">
-   <i class="fas fa-download me-1"></i>Exporter Tous
-</a>
+                   href="index.php?action=exportAllDossiers&id=<?= $patient_id ?>" 
+                   style="border-radius: 8px; padding: 12px 20px;">
+                   <i class="fas fa-download me-1"></i>Exporter Tous
+                </a>
 
-                <!-- <button class="btn btn-outline-secondary btn-sm" style="border-radius: 8px; padding: 12px 20px;">
-                    <i class="fas fa-download me-1"></i>Exporter
-                </button> -->
+ 
             </div>
         </div>
     </div>
@@ -172,11 +172,8 @@
 <!-- Medical Records Cards -->
 <div class="row" id="medicalRecordsContainer">
     <?php foreach($dossier as $d): ?> 
-        <div class="col-lg-6 col-xl-4 mb-4 medical-record-item" 
-             data-name="<?= strtolower($d->nom_complet) ?>" 
-             data-blood="<?= $d->groupe_sanguin ?>"
-             data-diagnostic="<?= strtolower($d->diagnostic) ?>">
-            <div class="card medical-card h-100" style="background: white;">
+        <div class="col-lg-6 col-xl-4 mb-4 medical-record-item" >
+            <div class="card medical-card h-100" >
                 <!-- Card Header -->
                 <div class="card-header card-header-custom text-white">
                     <div class="d-flex justify-content-between align-items-start">
@@ -208,7 +205,7 @@
                     <!-- Medical Info -->
                     <div class="info-item">
                         <span class="info-label">
-                            <i class="fas fa-virus text-danger me-2"></i>Type Maladie:
+                            <i class="fas fa-virus text-danger me-2"></i>Type de maladie:
                         </span>
                         <span class="info-value"><?= $d->type_maladie ?></span>
                     </div>
@@ -216,7 +213,7 @@
                     <div class="info-item">
                         <span class="info-label">
                             <i class="fas fa-stethoscope text-info me-2"></i>Diagnostic:
-                        </span>
+                        </span> <br>
                         <span class="info-value"><?= $d->diagnostic ?></span>
                     </div>
 
@@ -244,23 +241,28 @@
 
                     <!-- Financial Info -->
                     <div class="row mb-3">
-                        <div class="col-6">
-                            <div class="cost-highlight text-center">
-                                <small class="d-block opacity-90">Coût Total</small>
-                                <strong><?= number_format($d->cout_traitement ?? 0, 2) ?> MAD </strong>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="text-center p-2" style="background: rgba(255, 193, 7, 0.2); border-radius: 8px; color: #856404;">
-                                <small class="d-block">Acompte</small>
-                                <!-- to accepte null value -->
-                                <strong><?= number_format($d->acompte_cout ?? 0, 2) ?> MAD</strong> 
-                            </div>
-                        </div>
+                      <div class="col-6">
+                          <div class="cost-highlight text-center">
+                             <small class="d-block opacity-90">Coût Total</small>
+                             <strong><?= number_format($d->cout_traitement ?? 0, 2) ?> MAD </strong>
+                          </div>
+                      </div>
+                      <div class="col-6">
+                          <div class="text-center p-2" style="background: rgba(255, 193, 7, 0.2); border-radius: 8px; color: #856404;">
+                             <small class="d-block">Acompte</small>
+                             <strong><?= number_format($d->acompte_cout ?? 0, 2) ?> MAD</strong>
+                          </div>
+                      </div>
+                      <div class="col-12 mt-2">
+                          <div class="text-center p-2" style="background: rgba(23, 162, 184, 0.2); border-radius: 8px; color: #0c5460;">
+                            <small class="d-block">Montant restant</small>
+                            <strong><?= number_format(($d->cout_traitement ?? 0) - ($d->acompte_cout ?? 0), 2) ?> MAD</strong>
+                          </div>
+                      </div>
                     </div>
 
-                    <!-- Created By -->
 
+                    <!-- Created By -->
                     <div class="info-item mb-4">
                         <span class="info-label">
                             <i class="fas fa-user-md text-success me-2"></i>Créé par:
@@ -269,15 +271,15 @@
                     </div>
 
                     <!-- Action Buttons -->
-                    <div class="action-buttons text-center">
+                    <div class="action-buttons text-center ">
                         <a href="index.php?action=editDossier&id=<?= $d->id ?>" 
                            class="btn btn-warning text-white btn-sm">
-                            <i class="fas fa-edit me-1"></i>Modifier
+                           <i class="fas fa-edit me-1"></i>Modifier
                         </a>
                         <a href="index.php?action=exportDossier&id=<?= $d->id ?>" 
-   class="btn btn-success btn-sm">
-   <i class="fas fa-file-pdf me-1"></i>PDF
-</a>
+                           class="btn btn-success btn-sm">
+                           <i class="fas fa-file-pdf me-1"></i>PDF
+                        </a>
 
                         <a href="index.php?action=destroyDossier&id=<?= $d->id ?>&patient_id=<?= urlencode($d->patient_id) ?>"
                            class="btn btn-danger btn-sm" 
