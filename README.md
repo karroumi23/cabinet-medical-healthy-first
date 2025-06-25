@@ -18,7 +18,7 @@
           use this command :  ( php setup.php )
 
 
-⚙️ What Happens Automatically on Setup?
+ What Happens Automatically on Setup?
     The script creates all required tables:
       users
       patients

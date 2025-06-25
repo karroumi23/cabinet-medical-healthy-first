@@ -6,7 +6,7 @@ $fullWidth = true; //to display the background with width 100% (just home page )
 
 <style>
     .hero-section {
-        background-image: url('image/hopital.png'); /* Hospital-themed image */
+        background-image: url('/../Cabinet médical health_first/public/image/hopital.png'); 
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -52,7 +52,7 @@ $fullWidth = true; //to display the background with width 100% (just home page )
     <div class="hero-content text-center position-relative z-2 px-3">
         <h1 class="display-4 fw-bold mb-3">
             Bienvenue dans le système
-            <img src="/../Cabinet médical health_first/image/logo1.png" alt="Logo" style="width: 80px; margin-top: -15px;" class="ms-2">
+            <img src="/../Cabinet médical health_first/public/image/logo1.png" alt="Logo" style="width: 80px; margin-top: -15px;" class="ms-2">
         </h1>
         <p class="lead fw-normal">
             Une plateforme intelligente pour la gestion des profils et des utilisateurs en toute simplicité.
