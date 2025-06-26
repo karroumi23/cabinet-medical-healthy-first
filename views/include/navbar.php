@@ -19,7 +19,9 @@
   <div class="container-fluid">
 
     <!--  logo -->
-    <img src="/../Cabinet médical health_first/public/image/logo1.png" alt="" style="width:50px; height:auto; margin-left: 20px; margin-top: -10px;">
+      <a href="index.php?action=home">
+         <img src="/../Cabinet médical health_first/public/image/logo1.png" alt="" style="width:50px; height:auto; margin-left: 20px; margin-top: -10px;">
+      </a>
 
     <!-- Navbar for mobile -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
