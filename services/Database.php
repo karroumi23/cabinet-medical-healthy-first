@@ -63,23 +63,26 @@ class Database {
         ");
     }
 
-    //  create fake data  if users table is empty
-    private static function maybeImportFakeData($pdo) {
-        // Check if users table is empty
-        $stmt = $pdo->query("SELECT COUNT(*) FROM users");
-        $count = $stmt->fetchColumn();
+// Import fake data unconditionally
+private static function maybeImportFakeData($pdo) {
+    $sqlPath = __DIR__ . '/../database/fake_data.sql'; 
 
-        if ($count == 0) {
-            $sqlPath = __DIR__ . '/../db/fake_data.sql'; // Adjust path if needed
+    if (file_exists($sqlPath)) {
+        echo "Loading fake data from: $sqlPath\n";
+        $sql = file_get_contents($sqlPath);
 
-            if (file_exists($sqlPath)) {
-                $sql = file_get_contents($sqlPath);
-                $pdo->exec($sql);
-            } else {
-                error_log(" fake_data.sql not found at: $sqlPath");
-            }
+        try {
+            $pdo->exec($sql);
+            echo "Fake data imported successfully.\n";
+        } catch (PDOException $e) {
+            echo "Error importing fake data: " . $e->getMessage() . "\n";
         }
+
+    } else {
+        echo "❌ fake_data.sql not found at: $sqlPath\n";
     }
+}
+
 
 
     // Initialization   (i call it in setup.php only once)
