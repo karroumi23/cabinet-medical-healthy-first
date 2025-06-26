@@ -54,7 +54,7 @@
         .dossier {
             border: 1px solid #e0e0e0;
             margin-bottom: 15px;
-            margin-top: 50px;
+            margin-top: 7px;
             padding: 12px;
             page-break-inside: avoid;
             border-radius: 6px;
@@ -278,14 +278,14 @@
             color: white;
         }
         
+        .box-footer{
+            margin-top: 30px;
+        }
         .footer {
             text-align: center;
-            margin-top: 50px;
             padding: 8px;
-            border-top: 1px solid #dee2e6;
             font-size: 9px;
             color: #6c757d;
-            /* page-break-inside: avoid; */
         }
         
         .summary-stats {
@@ -484,6 +484,13 @@
                 </div>
             </div>
         </div>
+        <div class="box-footer">
+            <div class="footer">
+               <p><strong> Système de Gestion Médicale</strong></p>
+               <p>Rapport généré le <?= date('d/m/Y à H:i:s') ?> - <span style="background: red;">Document confidentiel</span></p>
+            </div> 
+        </div>
+
 
     <?php else: ?>
 
@@ -507,35 +514,50 @@
                     <div class="patient-id">Patient ID: <?= htmlspecialchars($dossier->patient_id) ?></div>
                 </div>
                 
-                <!-- Compact 2-column layout -->
+                <!-- 1-column  -->
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
-                    <!-- Left Column -->
-                    <div>
-
                         <!-- Medical Information -->
                         <div class="section">
-                            <div class="section-title"> Informations Médicales</div>
+                          <div class="section-title"> Informations Patient</div>
                             <div class="section-content">
-                                <div class="info-item">
-                                    <div class="info-label">Groupe:</div>
-                                    <span class="status-badge blood-type">
+                               <div class="info-grid">
+                                 <div class="info-item">
+                                   <div class="info-label">ID:</div>
+                                   <div class="info-value"><?= htmlspecialchars($dossier->patient_id) ?></div>
+                                 </div>
+                                 <div class="info-item">
+                                   <div class="info-label">Le nom complet : </div>
+                                   <div class="info-value"><?= htmlspecialchars($dossier->nom_complet) ?></div>
+                                 </div>
+                                 <div class="info-item">
+                                   <div class="info-label">Groupe:</div>
+                                   <span class="status-badge blood-type">
                                         <?= $dossier->groupe_sanguin ?>
-                                    </span>
-                                </div>
-                                <div class="info-item">
-                                    <div class="info-label">Type de maladie :</div>
-                                    <div class="info-value"><?= htmlspecialchars($dossier->type_maladie) ?></div>
-                                </div>
-                                
-                                <div class="diagnostic-box">
-                                    <div class="info-label">Diagnostique:</div>
-                                    <?= nl2br(htmlspecialchars($dossier->diagnostic)) ?>
-                                </div>
+                                   </span>
+                                   <div class="info-value">
+                                      <span class="blood-group"><?= htmlspecialchars($dossier->groupe_sanguin) ?></span>
+                                   </div>
+                                 </div>
+                              </div>
                             </div>
                         </div>
-                    </div>
                     
-                    <!-- Right Column -->
+                        <!-- Medical Information Section -->
+                        <div class="section">
+                          <div class="section-title"> Informations Médicales</div>
+                             <div class="section-content">
+                                <div class="info-item">
+                                  <div class="info-label">Type de maladie :</div>
+                                  <div class="info-value"><?= htmlspecialchars($dossier->type_maladie) ?></div>
+                                </div>
+                                <div class="diagnostic-box">
+                                  <div class="info-label">Diagnostique:</div>
+                                         <?= nl2br(htmlspecialchars($dossier->diagnostic)) ?>
+                                </div>
+                             </div>
+                        </div>
+
+                    <!-- 2 Column -->
                     <div>
                         <!-- Treatment Dates Section -->
                         <div class="section">
@@ -594,11 +616,13 @@
 
 
             </div>
+            <div class="box-footer">
+               <div class="footer">
+                  <p><strong> Système de Gestion Médicale</strong></p>
+                  <p>Rapport généré le <?= date('d/m/Y à H:i:s') ?> - <span style="background: red;">Document confidentiel</span></p>
+               </div>
+            </div>
 
-            <div class="footer">
-               <p><strong> Système de Gestion Médicale</strong></p>
-               <p>Rapport généré le <?= date('d/m/Y à H:i:s') ?> - <span style="background: red;">Document confidentiel</span></p>
-           </div>
         <?php endforeach; ?>
         
     <?php endif; ?>
