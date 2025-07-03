@@ -6,6 +6,14 @@
         <div class="col-md-6 col-lg-9 border p-4 shadow rounded bg-light mb-5">
 
         <h3  class="text-center  mb-4" >Ajouter un utilisateur</h3>
+         <!--  Error message -->
+         <?php if (isset($_SESSION['message'])): ?>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+               <?= htmlspecialchars($_SESSION['message']) ?>
+               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+           <?php unset($_SESSION['message']); ?>
+         <?php endif; ?>
 
         <form method="POST" action="index.php?action=storeUser" >
             <div class="mb-3">

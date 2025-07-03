@@ -46,7 +46,7 @@
             </div>
 
 
-<div class="container mt-3 " >
+  <div class="container mt-3 " >
 
 
     <div class="card border-0 shadow-sm h-100 mb-5" style="border-radius: 16px; background:rgb(243, 245, 247);">
@@ -99,7 +99,7 @@
         </div>
     </div>
 
-</div>
+  </div>
 
 
 <?php $content = ob_get_clean(); ?>

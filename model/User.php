@@ -20,6 +20,16 @@
             return $stmt->fetchObject();
         }
 
+        public static function existsByUsername($username)
+        {
+           $pdo = Database::connect();
+           $sqlState = $pdo->prepare("SELECT COUNT(*) FROM users WHERE username = ?");
+           $sqlState->execute([$username]);
+           $count = $sqlState->fetchColumn();
+
+         return $count > 0;
+        }
+
         public static function createUser($username, $password, $role)
         {
             $pdo = Database::connect();

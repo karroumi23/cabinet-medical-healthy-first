@@ -50,6 +50,12 @@ class AuthController {
             $username = $_POST['username'];
             $password = $_POST['password'];
             $role = $_POST['role'];
+            // Check if username already exists
+            if (User::existsByUsername($username)) {
+            $_SESSION['message'] = "Erreur : Le nom d'utilisateur '$username' est déjà pris.";
+            header('Location: index.php?action=createUser');
+            exit;
+           }
           //hash the password
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
           // Call model function to insert user
