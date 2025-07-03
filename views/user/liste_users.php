@@ -63,13 +63,13 @@
 
               </div>
               <div class="table-responsive custom-table w-100" >
-                <table class="table table-bordered table-hover text-center table-striped align-middle w-100">
-                   <thead class="table-dark text-center">
+                <table class="table table-hover table-striped align-middle  p-2 text-center">
+                   <thead class="table-success text-center" >
                        <tr>
                         <th style="width: 10px;">Id</th>
-                        <th style="width: 30px;">nom complet</th>
-                        <th style="width: 20px;">rôle</th>
-                        <th style="width: 80px;">date de création</th>
+                        <th style="width: 30px;">Nom Complet</th>
+                        <th style="width: 20px;">Rôle</th>
+                        <th style="width: 80px;">Date de création</th>
                         <th style="width: 120px;" >Action</th>
                        </tr>
                      </thead>

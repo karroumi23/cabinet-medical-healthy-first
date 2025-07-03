@@ -78,7 +78,7 @@
                <thead class="table-success text-center" >
                 <tr>
                     <th style="width: 10px;">Id</th>
-                    <th style="width: 80px;">nom-co</th>
+                    <th style="width: 80px;">Nom-co</th>
                     <th style="width: 30px;">Dossier</th>
                     <th style="width: 50px;">Age</th>
                     <th style="width: 15px;">Genre</th>

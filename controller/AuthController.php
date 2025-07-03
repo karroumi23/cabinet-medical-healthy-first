@@ -56,7 +56,7 @@ class AuthController {
             User::createUser($username, $hashedPassword, $role);
             $_SESSION['message'] = "L'utilisateur $username a été bien ajouté.";
           //redirection
-            header('Location: index.php?action=login');
+            header('Location: index.php?action=listUsers');
             exit;  
          } else {
             // If not POST, redirect to form
