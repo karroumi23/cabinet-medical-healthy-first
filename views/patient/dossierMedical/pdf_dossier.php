@@ -28,7 +28,7 @@
         .header {
             text-align: center;
             padding: 12px;
-            background: linear-gradient(135deg, rgb(192, 11, 11),rgb(248, 4, 98));
+            background:  linear-gradient(135deg, rgb(84, 141, 110), #2e6642);
             color: white;
             border-radius: 6px;
         }
@@ -37,12 +37,14 @@
             font-size: 20px;
             margin-bottom: 4px;
             font-weight: bold;
+            color: white;
         }
         
         .header h2 {
             font-size: 13px;
             opacity: 0.9;
             font-weight: normal;
+            color: white;
         }
         
         .header .date-generated {
@@ -401,13 +403,11 @@
                             <div class="info-value"><?= htmlspecialchars($dossier->nom_complet) ?></div>
                         </div>
                         <div class="info-item">
-                            <div class="info-label">Groupe:</div>
+                            <div class="info-label">Groupe Sanguin:</div>
                             <span class="status-badge blood-type">
                                  <?= $dossier->groupe_sanguin ?>
                             </span>
-                            <div class="info-value">
-                                <span class="blood-group"><?= htmlspecialchars($dossier->groupe_sanguin) ?></span>
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -530,13 +530,11 @@
                                    <div class="info-value"><?= htmlspecialchars($dossier->nom_complet) ?></div>
                                  </div>
                                  <div class="info-item">
-                                   <div class="info-label">Groupe:</div>
+                                   <div class="info-label">Groupe Sanguin:</div>
                                    <span class="status-badge blood-type">
                                         <?= $dossier->groupe_sanguin ?>
                                    </span>
-                                   <div class="info-value">
-                                      <span class="blood-group"><?= htmlspecialchars($dossier->groupe_sanguin) ?></span>
-                                   </div>
+
                                  </div>
                               </div>
                             </div>

@@ -1,4 +1,9 @@
 <?php ob_start(); ?>
+<style>
+     span{
+        color: red;
+     }
+</style>
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-10 col-lg-9 border p-4 shadow rounded bg-light mb-5">
@@ -11,22 +16,23 @@
             <form action="index.php?action=store" method="post">
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label class="form-label">Nom</label>
+                        <label class="form-label">Nom<span>*</span></label>
                         <input type="text" class="form-control" name="nom" required>
                     </div>
 
                     <div class="col-md-6 mb-3">
-                        <label class="form-label">Prénom</label>
+                        <label class="form-label">Prénom<span>*</span></label>
                         <input type="text" class="form-control" name="prenom" required>
                     </div>
 
                     <div class="col-md-4 mb-3">
                         <label class="form-label">Âge</label>
-                        <input type="number" class="form-control" name="age" required>
+                        <input type="number" class="form-control" id="age" name="age" >
+
                     </div>
 
                     <div class="col-md-4 mb-3">
-                        <label class="form-label">Genre</label>
+                        <label class="form-label">Genre<span>*</span></label>
                         <select class="form-select" name="genre" required>
                             <option value="">-- Choisir --</option>
                             <option value="H">Homme</option>
@@ -40,8 +46,10 @@
                     </div>
 
                     <div class="col-md-6 mb-3">
-                        <label class="form-label">Téléphone</label>
-                        <input type="text" class="form-control" name="tel" >
+                        <label class="form-label">Téléphone </label>
+                        <input class="form-control" type="tel" name="tel" id="tel" maxlength="15" pattern="^\+?[0-9]{9,14}$" placeholder="+212..." />
+
+                        <!-- <input type="text"   > -->
                     </div>
 
                     <div class="col-md-6 mb-3">
@@ -60,5 +68,24 @@
         </div>
     </div>
 </div>
+
+<script>
+    // Specify the number of numbers and prevent letters (telephone)
+     document.getElementById("tel").addEventListener("input", function () {
+     this.value = this.value.replace(/[^0-9+]/g, ""); // empêche les lettres
+   });
+    
+   // Specify the number of numbers and prevent letters (age)
+   document.getElementById("age").addEventListener("input", function () {
+      // Supprimer tout caractère non numérique
+      this.value = this.value.replace(/[^0-9]/g, "");
+
+       // Limiter à 3 chiffres
+       if (this.value.length > 3) {
+        this.value = this.value.slice(0, 3);
+       }
+    });
+
+</script>
 <?php $content = ob_get_clean(); ?>
 <?php require_once 'views/layout.php'; ?>

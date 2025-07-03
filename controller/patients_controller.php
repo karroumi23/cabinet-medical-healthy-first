@@ -8,13 +8,9 @@
     
      public function indexAction() //LISTE PATIENTS 
       {
-        // If the search exists, we store it in $search.
-        // If not, we just use an empty string ''.
-        //(trim => removes any spaces))
-        // condition ? value_if_true : value_if_false;
         $search = isset($_GET['search']) ? trim($_GET['search']) : '';
         $patients = Patient::getAll($search); 
-    
+
         // dossier status
         foreach ($patients as $p) {
             $p->has_dossier = !empty(Dossier::getDossier($p->id));
@@ -83,7 +79,8 @@
 
       //-------------------------------------------------------------export
 
-      public function exportAction() {
+      public function exportAction()
+       {
         require_once 'vendor/autoload.php';
         //to export just search reselt 
         $search = isset($_GET['search']) ? trim($_GET['search']) : '';

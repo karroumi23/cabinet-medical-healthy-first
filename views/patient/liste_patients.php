@@ -59,10 +59,10 @@
                             <form action="index.php" method="GET">
                                 <input type="hidden" name="action" value="list">
                                 <div class="input-group mb3">
-                                    <input type="text" name="search" value="<?php if(isset($_GET['search'])){echo $_GET['search'];} ?>" class="form-control" placeholder="Rechercher par nom... ">
-                                    <button class="btn btn-outline-secondary btn-sm" style="border-radius: 8px;">
-                                           <i class="fas fa-filter me-1"></i>Filtrer
-                                    </button>
+                                    <input type="text" id="searchInput" name="search"
+                                        value="<?php if(isset($_GET['search'])){echo $_GET['search'];} ?>" 
+                                         class="form-control" placeholder="Rechercher par nom... "
+                                    >
                                 </div>
                             </form>
                               <!-- to export just search reselt -->
@@ -97,18 +97,18 @@
                            <?php $nom_complet = $p->nom . ' ' . $p->prenom; ?>
                         <td><?= $nom_complet ?></td>
                         <td class="text-center">
-                         <div class="d-flex justify-content-center gap-2">
-                            <?php if ($p->has_dossier): ?>
-                              <a href="index.php?action=dossierMedical&id=<?= $p->id ?>" style="color: #417A58 ; "  
+                          <div class="d-flex justify-content-center gap-2">
+                             <?php if ($p->has_dossier): ?>
+                               <a href="index.php?action=dossierMedical&id=<?= $p->id ?>" style="color: #417A58 ; "  
                                     title="afficher dossier">
-                                  <i class="fa-solid fa-file-waveform" style="font-size: 20px;"></i>
-                              </a>
-                            <?php endif; ?>
+                                  <i class="fa-solid fa-file-waveform" style="font-size: 20px;"></i> 
+                               </a>
+                             <?php endif; ?>
     
-                           <a href="index.php?action=createDossier&id=<?= $p->id ?>&nom_complet=<?= urlencode($nom_complet) ?>" 
-                               style="color: #E28421;" title="Ajouter dossier">
-                               <i class="fa-solid fa-square-plus" style="font-size: 20px;"></i>
-                           </a>
+                              <a href="index.php?action=createDossier&id=<?= $p->id ?>&nom_complet=<?= urlencode($nom_complet) ?>" 
+                                 style="color: #E28421;" title="Ajouter dossier">
+                                 <i class="fa-solid fa-square-plus" style="font-size: 20px;"></i>
+                              </a>
                          </div>  
                         </td>
 
@@ -147,6 +147,27 @@
        </div>
    </div>
 
+   <script>
+    //  filter de recherche 
+     document.addEventListener("DOMContentLoaded", function() {
+        const searchInput = document.getElementById('searchInput');
+        const tableRows = document.querySelectorAll('table tbody tr');
+
+       searchInput.addEventListener('input', function() {
+          const filter = searchInput.value.toLowerCase();
+
+          tableRows.forEach(row => {
+             // Get the text content of the "nom-co" cell (which is the 2nd <td>, index 1)
+             const nomCoCell = row.cells[1];
+             if (nomCoCell) {
+             const nomCoText = nomCoCell.textContent.toLowerCase();
+             // Show row if nom-co includes the filter text, else hide it
+             row.style.display = nomCoText.includes(filter) ? '' : 'none';
+            }
+          });
+       });
+    });
+ </script>
 
 <?php $content = ob_get_clean(); ?>
 <?php require_once 'views/layout.php'; ?>

@@ -6,6 +6,9 @@
      .readonly-cursor{
         cursor:not-allowed
      }
+     span{
+        color: red;
+     }
 </style> 
  <div class="container mt-5">
      <div class="row justify-content-center">
@@ -50,7 +53,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label">Date d'admission</label>
+                    <label class="form-label">Date d'admission<span>*</span></label>
                     <input type="date" class="form-control" name="date_admission" required>
                 </div>
 
