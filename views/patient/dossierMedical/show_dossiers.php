@@ -280,12 +280,18 @@
                            class="btn btn-success btn-sm">
                            <i class="fas fa-file-pdf me-1"></i>PDF
                         </a>
+                        <?php 
+                          //if user connecte & session has role (admin) display 'Supprimer' 
+                          if (isset($_SESSION['user']) && $_SESSION['user']['role'] === 'admin'):  ?>
+                               <!-- supprimer -->
+                               <a href="index.php?action=destroyDossier&id=<?= $d->id ?>&patient_id=<?= urlencode($d->patient_id) ?>"
+                                 class="btn btn-danger btn-sm" 
+                                 onclick="return confirm('Voulez-vous vraiment supprimer le dossier de <?= addslashes($d->nom_complet) ?> avec ID <?= addslashes($d->id) ?> ?');">
+                                 <i class="fas fa-trash me-1"></i>Supprimer
+                               </a>  
+                        <?php endif; ?>  
 
-                        <a href="index.php?action=destroyDossier&id=<?= $d->id ?>&patient_id=<?= urlencode($d->patient_id) ?>"
-                           class="btn btn-danger btn-sm" 
-                           onclick="return confirm('Voulez-vous vraiment supprimer le dossier de <?= addslashes($d->nom_complet) ?> avec ID <?= addslashes($d->id) ?> ?');">
-                            <i class="fas fa-trash me-1"></i>Supprimer
-                        </a>
+
                     </div>
                 </div>
             </div>
@@ -295,8 +301,8 @@
 
 
 <script>
-// Search and Filter Functionality
-function filterRecords() {
+  // Search and Filter Functionality
+  function filterRecords() {
     const searchTerm = document.getElementById('searchInput').value.toLowerCase();
     const bloodGroup = document.getElementById('bloodGroupFilter').value;
     const statusFilter = document.getElementById('statusFilter').value;
@@ -321,19 +327,19 @@ function filterRecords() {
     });
     
     document.getElementById('noResults').style.display = visibleCount === 0 ? 'block' : 'none';
-}
+  }
 
-function clearFilters() {
+  function clearFilters() {
     document.getElementById('searchInput').value = '';
     document.getElementById('bloodGroupFilter').value = '';
     document.getElementById('statusFilter').value = '';
     filterRecords();
-}
+  }
 
-// Event listeners
-document.getElementById('searchInput').addEventListener('input', filterRecords);
-document.getElementById('bloodGroupFilter').addEventListener('change', filterRecords);
-document.getElementById('statusFilter').addEventListener('change', filterRecords);
+  // Event listeners
+  document.getElementById('searchInput').addEventListener('input', filterRecords);
+  document.getElementById('bloodGroupFilter').addEventListener('change', filterRecords);
+  document.getElementById('statusFilter').addEventListener('change', filterRecords);
 </script>
 
 <?php $content = ob_get_clean(); ?>
