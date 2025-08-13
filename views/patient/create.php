@@ -17,7 +17,7 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label class="form-label">Nom<span>*</span></label>
-                        <input type="text" class="form-control" name="nom" required>
+                        <input type="text" class="form-control" name="nom"  >
                     </div>
 
                     <div class="col-md-6 mb-3">
@@ -26,8 +26,8 @@
                     </div>
 
                     <div class="col-md-4 mb-3">
-                        <label class="form-label">Âge</label>
-                        <input type="number" class="form-control" id="age" name="age" >
+                        <label class="form-label">Âge<span>*</span></label>
+                        <input type="number" class="form-control" id="age" name="age" required>
 
                     </div>
 

@@ -20,7 +20,7 @@
 
     <!--  logo -->
       <a href="index.php?action=home">
-         <img src="/../Cabinet médical health_first/public/image/logo1.png" alt="" style="width:50px; height:auto; margin-left: 20px; margin-top: -10px;">
+         <img src="#" alt="LOGO" style="width:50px; height:auto; margin-left: 20px; margin-top: -10px;">
       </a>
 
     <!-- Navbar for mobile -->
