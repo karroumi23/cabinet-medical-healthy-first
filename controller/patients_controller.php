@@ -5,7 +5,7 @@
       {
         require_once 'views/home.php';
       }
-    
+    //test
      public function indexAction() //LISTE PATIENTS 
       {
         $search = isset($_GET['search']) ? trim($_GET['search']) : '';
